@@ -1,3 +1,5 @@
+[![Codeship Status for Equable/alpha_reviews](https://app.codeship.com/projects/db815360-009e-0137-f2c8-3ab166e74c3b/status?branch=master)](/projects/324696)
+
 # Alpha Restaurant Reviews
 
 This README would normally document whatever steps are necessary to get the
