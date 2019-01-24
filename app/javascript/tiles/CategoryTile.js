@@ -1,10 +1,9 @@
 import React from "react";
 
 const CategoryTile = props => {
-  debugger;
   return (
     <div>
-      <h1>{props.name}</h1>
+      <h4>{props.name}</h4>
     </div>
   );
 };

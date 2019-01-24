@@ -12,11 +12,11 @@ const RestaurantInfoTile = props => {
   return (
     <div>
       <h1>{props.restaurant.name}</h1>
-      <h1>{categories}</h1>
+      {categories}
+      <br />
       <p>Address: {props.restaurant.street} </p>
       <p>
-        {props.restaurant.city} {props.restaurant.state}
-        {props.restaurant.zip}
+        {props.restaurant.city}, {props.restaurant.state} {props.restaurant.zip}
       </p>
     </div>
   );
