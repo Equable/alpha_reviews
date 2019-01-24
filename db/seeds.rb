@@ -1,9 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-
 categories = [
   	{ name: 'Italian' }, 
   	{ name: 'Southwestern' }, 
@@ -23,8 +17,8 @@ categories = [
   	{ name: 'Subs' }
 ]
 
-categories.each do |x|
-	Category.create(x)
+categories.each do |category|
+	Category.create(category)
 end
 
 
@@ -35,15 +29,15 @@ restaurants = [
 	{ name: "Wendy's", street: '75 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Simply the best', image: '', avg_rating: 5, avg_cost: '$$'}
 ]
 
-restaurants.each do |x|
-	Restaurant.create(x)
+restaurants.each do |restaurant|
+	Restaurant.create(restaurant)
 end
 
 categorizations = [
 	{restaurant: Restaurant.first, category: Category.fifth}
 ]
 
-categorizations.each do |x|
-	Categorization.create(x)
+categorizations.each do |categorization|
+	Categorization.create(categorization)
 end
 
