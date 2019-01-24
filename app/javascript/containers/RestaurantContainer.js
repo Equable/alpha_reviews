@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+
+import ReviewsContainer from './ReviewsContainer'
 import RestaurantInfoTile from '../tiles/RestaurantInfoTile'
 
 class RestaurantContainer extends Component {
@@ -11,6 +13,7 @@ class RestaurantContainer extends Component {
 
   componentDidMount() {
     let id = this.props.params.id;
+    debugger;
     fetch(`/api/v1/restaurants/${id}`)
       .then(response => {
         if (response.ok) {
@@ -29,6 +32,7 @@ class RestaurantContainer extends Component {
     return (
       <div>
         <RestaurantInfoTile restaurant= {this.state.restaurant}/>
+        <ReviewsContainer restaurantId= {this.state.restaurant.id} />
       </div>
     );
   }

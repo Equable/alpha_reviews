@@ -1,3 +1,4 @@
+
 categories = [
   	{ name: 'Italian' }, 
   	{ name: 'Southwestern' }, 
@@ -41,3 +42,11 @@ categorizations.each do |categorization|
 	Categorization.create(categorization)
 end
 
+reviews = [
+	{ rating: 50, user_id: 1, restaurant_id: 1, comment: "it was mediocre at best" },
+	{ rating: 80, user_id: 1, restaurant_id: 2, comment: "twas a delight"}
+]
+
+reviews.each do |review|
+	Review.create(review)
+end
