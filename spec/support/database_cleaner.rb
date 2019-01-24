@@ -1,13 +1,6 @@
 RSpec.configure do |config|
-
-  # before each test suite, dump the database completely
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  # “sets the default database cleaning strategy to be transactions”
-  #
-  config.before(:each) do
+    DatabaseCleaner.clean_with :truncation 
     DatabaseCleaner.strategy = :transaction
   end
 
