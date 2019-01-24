@@ -1,17 +1,25 @@
-import React from 'react'
+import React from "react";
+import CategoryTile from "./CategoryTile";
 
 const RestaurantInfoTile = props => {
-    return(
-        <div>
-            <h1>{props.restaurant.name}</h1>
-            <h1>TBD categories</h1>
-            <p>Address: {props.restaurant.street} </p>
-            <p>
-                {props.restaurant.city} {props.restaurant.state}
-                {props.restaurant.zip}
-            </p>
-        </div>
-    )
-}
+  let categories = [];
+  if (props.restaurant.categories) {
+    categories = props.restaurant.categories.map(category => {
+      return <CategoryTile key={category.id} name={category.name} />;
+    });
+  }
 
-export default RestaurantInfoTile
+  return (
+    <div>
+      <h1>{props.restaurant.name}</h1>
+      <h1>{categories}</h1>
+      <p>Address: {props.restaurant.street} </p>
+      <p>
+        {props.restaurant.city} {props.restaurant.state}
+        {props.restaurant.zip}
+      </p>
+    </div>
+  );
+};
+
+export default RestaurantInfoTile;

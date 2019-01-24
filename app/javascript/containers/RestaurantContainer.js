@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import RestaurantInfoTile from '../tiles/RestaurantInfoTile'
+import RestaurantInfoTile from "../tiles/RestaurantInfoTile";
 
 class RestaurantContainer extends Component {
   constructor(props) {
@@ -10,7 +10,6 @@ class RestaurantContainer extends Component {
   }
 
   componentDidMount() {
-    debugger;
     let id = this.props.params.id;
     fetch(`/api/v1/restaurants/${id}`)
       .then(response => {
@@ -21,22 +20,18 @@ class RestaurantContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ restaurant: body });
+        this.setState({ restaurant: body.restaurant });
       });
   }
 
   render() {
     console.log(this.state.restaurant);
-<<<<<<< HEAD
-    debugger;
-    return <div>{this.state.restaurant.name}</div>;
-=======
+
     return (
       <div>
-        <RestaurantInfoTile restaurant= {this.state.restaurant}/>
+        <RestaurantInfoTile restaurant={this.state.restaurant} />
       </div>
     );
->>>>>>> 728fb38e38df0bb4cbef5c57c1be34fa3f0cd1de
   }
 }
 
