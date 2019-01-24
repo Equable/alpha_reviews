@@ -29,7 +29,7 @@ class RestaurantContainer extends Component {
       <div>
         <h1>{this.state.restaurant.name}</h1>
         <h1>TBD categories</h1>
-        <p>{this.state.restaurant.street} </p>
+        <p>Address: {this.state.restaurant.street} </p>
         <p>
           {this.state.restaurant.city} {this.state.restaurant.state}
           {this.state.restaurant.zip}
