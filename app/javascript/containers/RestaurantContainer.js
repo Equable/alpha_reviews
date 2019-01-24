@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import RestaurantInfoTile from '../tiles/RestaurantInfoTile'
 
 class RestaurantContainer extends Component {
   constructor(props) {
@@ -27,13 +28,7 @@ class RestaurantContainer extends Component {
     console.log(this.state.restaurant);
     return (
       <div>
-        <h1>{this.state.restaurant.name}</h1>
-        <h1>TBD categories</h1>
-        <p>Address: {this.state.restaurant.street} </p>
-        <p>
-          {this.state.restaurant.city} {this.state.restaurant.state}
-          {this.state.restaurant.zip}
-        </p>
+        <RestaurantInfoTile restaurant= {this.state.restaurant}/>
       </div>
     );
   }
