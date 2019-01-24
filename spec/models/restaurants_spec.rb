@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Restaurant, type: :model do
   context "successfully writes a value to the restaurant table" do 
 
-  	restaurant = FactoryBot.create(:restaurant)
+  	let!(:restaurant) { FactoryBot.create(:restaurant) }
   	it "should have a Restaurant class" do 
   		expect(restaurant.save).to eq(true)
   	end
