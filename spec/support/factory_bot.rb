@@ -20,4 +20,10 @@ FactoryBot.define do
   	name {Faker::Beer.style}
   end
 
+  factory :review do
+    rating { rand(1...100) }
+    user { FactoryBot.create(:user) }
+    restaurant { FactoryBot.create(:restaurant) }
+    comment { "blah blah blah" }
+  end
 end
