@@ -9,6 +9,7 @@ class RestaurantContainer extends Component {
   }
 
   componentDidMount() {
+    debugger;
     let id = this.props.params.id;
     fetch(`/api/v1/restaurants/${id}`)
       .then(response => {
@@ -25,17 +26,8 @@ class RestaurantContainer extends Component {
 
   render() {
     console.log(this.state.restaurant);
-    return (
-      <div>
-        <h1>{this.state.restaurant.name}</h1>
-        <h1>TBD categories</h1>
-        <p>Address: {this.state.restaurant.street} </p>
-        <p>
-          {this.state.restaurant.city} {this.state.restaurant.state}
-          {this.state.restaurant.zip}
-        </p>
-      </div>
-    );
+    debugger;
+    return <div>{this.state.restaurant.name}</div>;
   }
 }
 
