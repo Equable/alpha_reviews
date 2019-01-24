@@ -4,8 +4,7 @@
 # Examples:
 #
 
-  categories = 
-  [
+categories = [
   	{ name: 'Italian' }, 
   	{ name: 'Southwestern' }, 
   	{ name: 'Sushi' },
@@ -22,56 +21,29 @@
   	{ name: 'Pho' },
   	{ name: 'Mediterranean' },
   	{ name: 'Subs' }
-  ]
+]
 
-
-  categories.each do |x|
-  	Category.create(x)
-  end
+categories.each do |x|
+	Category.create(x)
+end
 
 
 
 restaurants = [
-	{ 
-	name: "Papa John's", 
-	street: '77 Summer St', 
-	city: 'Boston', 
-	state: 'MA', 
-	zip: '02112', 
-	description: 'Trash food for your face!', 
-	image: '', 
-	avg_rating: 1,
-	avg_cost: '$'
-	 },
+	{ name: "Papa John's", street: '77 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Trash food for your face!', image: '', avg_rating: 1, avg_cost: '$'},
+	{ name: "Falafel King", street: '98 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Delicious', image: '', avg_rating: 4, avg_cost: '$$'},
+	{ name: "Wendy's", street: '75 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Simply the best', image: '', avg_rating: 5, avg_cost: '$$'}
+]
 
-	{ 
-	name: "Falafel King", 
-	street: '98 Summer St', 
-	city: 'Boston', 
-	state: 'MA', 
-	zip: '02112', 
-	description: 'Delicious', 
-	image: '', 
-	avg_rating: 4,
-	avg_cost: '$$'
-	 },
+restaurants.each do |x|
+	Restaurant.create(x)
+end
 
-	 	{ 
-	name: "Wendy's", 
-	street: '75 Summer St', 
-	city: 'Boston', 
-	state: 'MA', 
-	zip: '02112', 
-	description: 'Simply the best', 
-	image: '', 
-	avg_rating: 5,
-	avg_cost: '$$'
-	 },
+categorizations = [
+	{restaurant: Restaurant.first, category: Category.fifth}
+]
 
-	]
+categorizations.each do |x|
+	Categorization.create(x)
+end
 
-	 restaurants.each do |x|
-	 	Restaurant.create(x)
-	 end
-
-  # Character.create(name: 'Luke', movie: movies.first)

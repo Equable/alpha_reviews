@@ -2,15 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Categorization, type: :model do
   context "successfully saves values" do 
-  	category = FactoryBot.create(:category)
-  	restaurant = FactoryBot.create(:restaurant)
-  	categorization = Categorization.new(restaurant: restaurant, category: category )
+  	let!(:category) { FactoryBot.create(:category) }
+  	let!(:restaurant) { FactoryBot.create(:restaurant) }
+  	let!(:categorization) { Categorization.create(restaurant: restaurant, category: category ) }
   	
   	it "should write a value to the category table" do 
   		expect(categorization.save).to eq(true)
 		end
-
-		categorization.save
 
 	  it "should belong to a restaurant" do 
   		expect(categorization.restaurant).to eq(restaurant)

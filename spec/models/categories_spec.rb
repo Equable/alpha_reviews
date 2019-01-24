@@ -10,9 +10,9 @@ RSpec.describe Category, type: :model do
 	end
 
 	context "category model has validations" do
-		category1 = Category.new(name: 'hello')
-		category2 = Category.new(name: 'hello')
-		category3 = Category.new(name: 'goodbye')
+		let!(:category1) { Category.new(name: 'hello') }
+		let!(:category2) { Category.new(name: 'hello') }
+		let!(:category3) { Category.new(name: 'goodbye') }
 
 		it "should not store a duplicate name in the category table" do
 			expect(category1.save).to eq(true)

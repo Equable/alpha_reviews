@@ -11,15 +11,15 @@ RSpec.describe Restaurant, type: :model do
 
 
 	context "restaurant name is unique" do
-		restaurant = {	
+		let!(:restaurant) { {	
 			name: "Papa John's", 
 			street: '77 Summer St', 
 			city: 'Boston', 
 			state: 'MA', 
 			zip: '02112'
-		}
-		Restaurant.create(restaurant)
-		restaurant2 = Restaurant.new(restaurant)
+		} }
+		let!(:restaurant1) { Restaurant.create(restaurant) }
+		let!(:restaurant2) { Restaurant.new(restaurant) }
 		it "should not save duplicate restaurant" do 
 			expect(restaurant2.save).to eq(false)
 		end
