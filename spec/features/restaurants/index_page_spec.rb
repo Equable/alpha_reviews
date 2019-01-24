@@ -7,8 +7,7 @@ feature "Going to Restaurant Index page" do
     scenario "should show a unorder list of restaurants with links and the restaurant names" do
         visit '/restaurants'
         
-        find('li a', text: restaurant1.name)
-        find('li a', text: restaurant2.name)
+        expect(page).to have_content(restaurant1.name)
     end
 
     scenario "when i click a link to to a restaurant it should take me to their show page" do
