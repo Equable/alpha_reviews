@@ -13,7 +13,7 @@ feature "Going to Restaurant Index page" do
     scenario "when i click a link to to a restaurant it should take me to their show page" do
         visit '/restaurants'
 
-        click_link(restaurant1.name, match: :first)
+        click_link(restaurant1.name)
         expect(page).to have_current_path("/restaurants/#{restaurant1.id}")
     end
 end
