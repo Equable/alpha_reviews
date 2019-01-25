@@ -38,7 +38,7 @@ describe('RestaurantContainer', () => {
     setTimeout(() => {
       expect(wrapper.state()).toEqual({ restaurant: {} })
       done()
-    }, 0)
+    }, 200)
   })
 
 })
