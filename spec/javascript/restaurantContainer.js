@@ -26,10 +26,13 @@ describe('RestaurantContainer', () => {
       <RestaurantContainer
         params = {{ id:1 }}
       />);
-      console.log(wrapper.debug())
   });
 
   afterEach(fetchMock.restore)
+
+  it('renders an h1', () => {
+    expect(wrapper.find('h1')).toBePresent()
+  })
 
   it('should have initial state with am empty restaurant', () => {
     setTimeout(() => {
