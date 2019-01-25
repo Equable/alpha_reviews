@@ -14,7 +14,7 @@ const RestaurantInfoTile = props => {
       <h1>{props.restaurant.name}</h1>
       {categories}
       <br />
-      <p>Address: {props.restaurant.street} </p>
+      <h2>Address: {props.restaurant.street}</h2>
       <p>
         {props.restaurant.city}, {props.restaurant.state} {props.restaurant.zip}
       </p>

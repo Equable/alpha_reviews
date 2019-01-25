@@ -25,11 +25,12 @@ class RestaurantContainer extends Component {
   }
 
   render() {
-    console.log(this.state.restaurant);
-
+    console.log(this.state)
     return (
       <div>
-        <RestaurantInfoTile restaurant={this.state.restaurant} />
+        <RestaurantInfoTile
+          restaurant={this.state.restaurant}
+          />
       </div>
     );
   }
