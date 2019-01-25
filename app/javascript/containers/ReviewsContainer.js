@@ -9,21 +9,6 @@ class ReviewsContainer extends Component {
         };
     }
 
-    componentDidMount() {
-        let id = this.props.restaurantId
-        fetch(`/api/v1/reviews/${id}`)
-            .then(response => {
-                if (response.ok) {
-                    return response;
-                } else {
-                }
-            })
-            .then(response => response.json())
-            .then(body => {
-                this.setState({ reviews: body.reviews });
-            });
-    }
-
     render() {
         let reviewTiles = this.state.reviews.map(review => {
             return(

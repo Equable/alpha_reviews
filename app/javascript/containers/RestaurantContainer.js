@@ -13,7 +13,6 @@ class RestaurantContainer extends Component {
 
   componentDidMount() {
     let id = this.props.params.id;
-    debugger;
     fetch(`/api/v1/restaurants/${id}`)
       .then(response => {
         if (response.ok) {
