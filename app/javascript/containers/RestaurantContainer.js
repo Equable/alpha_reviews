@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 
 import ReviewsContainer from './ReviewsContainer'
 import RestaurantInfoTile from '../tiles/RestaurantInfoTile'
-=======
-import RestaurantInfoTile from "../tiles/RestaurantInfoTile";
->>>>>>> a4750169ab2fec584a3f33e6e3dda014f913dd4f
 
 class RestaurantContainer extends Component {
   constructor(props) {
@@ -35,12 +31,8 @@ class RestaurantContainer extends Component {
 
     return (
       <div>
-<<<<<<< HEAD
         <RestaurantInfoTile restaurant= {this.state.restaurant}/>
-        <ReviewsContainer restaurantId= {this.state.restaurant.id} />
-=======
-        <RestaurantInfoTile restaurant={this.state.restaurant} />
->>>>>>> a4750169ab2fec584a3f33e6e3dda014f913dd4f
+        <ReviewsContainer reviews= {this.state.restaurant.reviews} />
       </div>
     );
   }
