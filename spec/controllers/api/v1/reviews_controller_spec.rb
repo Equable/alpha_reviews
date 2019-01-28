@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::ReviewsController, type: :controller do
   describe "POST#create" do
-
+    let!(:rest1) { FactoryBot.create(:restaurant)}
     login_user
 
     it "should have a current_user" do
@@ -11,10 +11,11 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
     end
 
     it "creates a new review" do
-      review = {rating: 4, comment: "string of joes", restaurant_id: 1 }.to_json
+      review = {review: {rating: 4, comment: "string of joes", restaurant_id: rest1.id }}
 
       prev_count = Review.count
-      post(:create, body: review)
+      
+      post(:create, params: review)
       expect(Review.count).to eq(prev_count + 1)
     end
   end

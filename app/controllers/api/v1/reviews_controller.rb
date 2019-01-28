@@ -15,7 +15,6 @@ class Api::V1::ReviewsController < ApplicationController
 
   private
   def review_params
-    binding.pry
     params.require(:review).permit(:rating, :comment, :restaurant_id)
   end
 end
