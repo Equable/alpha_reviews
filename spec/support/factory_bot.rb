@@ -3,9 +3,9 @@ require 'factory_bot'
 FactoryBot.define do
 
   factory :user do
-    sequence(:email) {|n| "user#{n}@example.com" }
-    password { 'password' }
-    password_confirmation { 'password' }
+    email { Faker::Internet.email }
+    password "password"
+    password_confirmation "password"
   end
 
   factory :restaurant do
@@ -16,7 +16,7 @@ FactoryBot.define do
   	zip {Faker::Address.zip_code}
   end
 
-  factory :category do 
+  factory :category do
   	name {Faker::Beer.style}
   end
 
