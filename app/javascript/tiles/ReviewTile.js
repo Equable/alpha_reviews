@@ -2,7 +2,7 @@ import React from 'react'
 
 const ReviewTile = props => {
     return (
-        <div>
+        <div className='review-tile'>
             <h4>Rating: {props.review.rating}/100</h4>
             <h4>User: {props.review.user_id}</h4>
             <h6>Comment:</h6>
