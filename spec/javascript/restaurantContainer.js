@@ -1,6 +1,4 @@
 import RestaurantContainer from "../../app/javascript/containers/RestaurantContainer";
-// import RestaurantInfoTile from "../../app/javascript/tiles/RestaurantInfoTile";
-// import CategoryTile from "../../app/javascript/tiles/CategoryTile";
 import ReviewsContainer from "../../app/javascript/containers/ReviewsContainer"
 import ReviewFormTile from "../../app/javascript/tiles/ReviewFormTile"
 
