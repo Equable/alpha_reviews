@@ -83,4 +83,31 @@ describe('RestaurantContainer', () => {
       done()
     }, 0)
   })
+
+  it('successfully adds to the reviews when a valid review is supplied', (done) => {
+  fetchMock.post('/api/v1/reviews/', {
+    status: 201,
+    body: {
+      review:{
+        comment: "test",
+        created_at: "2019-01-28T22:37:03.535Z",
+        id: 4,
+        rating: 100,
+        restaurant_id: 1,
+        updated_at: "2019-01-28T22:37:03.535Z",
+        user_id: 1
+      }
+    }
+  });
+  setTimeout(() => {
+    let reviewLength = wrapper.find('.review-tile').nodes.length
+    wrapper.find('.submit').simulate('submit')
+    setTimeout(() => {
+      expect(wrapper.contains(<h4>Rating: 100/100</h4>)).toEqual(true)
+      expect(wrapper.contains(<p>test</p>)).toEqual(true)
+      expect(wrapper.find('.review-tile').nodes.length).toEqual(reviewLength + 1)
+      done()
+    })
+  }, 0)
+})
 })
