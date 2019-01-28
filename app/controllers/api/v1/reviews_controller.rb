@@ -13,6 +13,20 @@ class Api::V1::ReviewsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def show
+    review = Review.find(params[:id])
+    render json: review
+  end
+
+  def update
+    binding.pry
+    review = Review.find(params[:id])
+
+  end
+
   private
   def review_params
     params.require(:review).permit(:rating, :comment, :restaurant_id)

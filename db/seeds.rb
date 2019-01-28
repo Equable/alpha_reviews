@@ -51,3 +51,12 @@ reviews = [
 reviews.each do |review|
 	Review.create(review)
 end
+
+users = [
+  { email: "user@test.com", password: "password", admin: false },
+  { email: "admin@test.com", password: "password", admin: true }
+]
+
+users.each do |user|
+  User.create(user)
+end
