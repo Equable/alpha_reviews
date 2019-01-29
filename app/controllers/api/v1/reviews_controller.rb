@@ -13,18 +13,18 @@ class Api::V1::ReviewsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def show
     review = Review.find(params[:id])
+    review.rating = review.rating / 20
     render json: review
   end
 
   def update
-    binding.pry
-    review = Review.find(params[:id])
-
+    update_review = review_params
+    update_review["rating"] = update_review["rating"].to_i * 20
+    Review.update(params[:id], update_review)
+    render :template => 'restaurants/show.html.erb'
+    # redirect_to restaurant_path(update_review["restaurant_id"])
   end
 
   private
