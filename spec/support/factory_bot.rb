@@ -6,6 +6,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password "password"
     password_confirmation "password"
+    avatar { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/avatar.png'), 'image/png') }
   end
 
   factory :restaurant do
