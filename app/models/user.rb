@@ -10,7 +10,10 @@ class User < ApplicationRecord
   def username
     return self.email.split('@')[0]
   end
-  validates_presence_of   :avatar
-  validates_integrity_of  :avatar
-  validates_processing_of :avatar
+
+  # if :avatar
+  #   validates_presence_of   :avatar
+  #   validates_integrity_of  :avatar
+  #   validates_processing_of :avatar
+  # end
 end

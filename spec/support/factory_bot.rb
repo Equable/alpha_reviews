@@ -6,6 +6,7 @@ FactoryBot.define do
     sequence(:email) {|n| "user#{n}@example.com" }
     password { 'password' }
     password_confirmation { 'password' }
+    avatar { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/avatar.jpeg'), 'image/jpeg') }
   end
 
   factory :restaurant do
@@ -16,7 +17,7 @@ FactoryBot.define do
   	zip {Faker::Address.zip_code}
   end
 
-  factory :category do 
+  factory :category do
   	name {Faker::Beer.style}
   end
 
