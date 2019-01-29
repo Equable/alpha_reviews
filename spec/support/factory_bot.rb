@@ -3,9 +3,9 @@ require 'factory_bot'
 FactoryBot.define do
 
   factory :user do
-    sequence(:email) {|n| "user#{n}@example.com" }
-    password { 'password' }
-    password_confirmation { 'password' }
+    email { Faker::Internet.email }
+    password "password"
+    password_confirmation "password"
     avatar { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/avatar.png'), 'image/png') }
   end
 
@@ -21,4 +21,10 @@ FactoryBot.define do
   	name {Faker::Beer.style}
   end
 
+  factory :review do
+    rating { rand(1...100) }
+    user { FactoryBot.create(:user) }
+    restaurant { FactoryBot.create(:restaurant) }
+    comment { "blah blah blah" }
+  end
 end
