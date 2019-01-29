@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { browserHistory } from 'react-router';
 
 class ReviewEditFormTile extends Component {
     constructor(props) {
@@ -46,7 +47,7 @@ class ReviewEditFormTile extends Component {
       event.preventDefault()
       let review = { review:{ rating: this.state.rating, comment: this.state.comment, restaurant_id: this.state.restaurant_id } }
       this.updateReview(review)
-      this.props.history.push(`/restaurants/${this.state.restaurant_id}`)
+      browserHistory.push(`/restaurants/${this.state.restaurant_id}`)
     }
 
 

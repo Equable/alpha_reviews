@@ -19,7 +19,7 @@ class ReviewsContainer extends Component {
         let reviewTiles = reviews.map(review => {
 
             return(
-                <ReviewTile key={review.id} review={review}/>
+                <ReviewTile key={`rev_${review.id}`} review={review}/>
             )
         })
         return (
