@@ -5,5 +5,4 @@ class Api::V1::RestaurantsController < ApplicationController
       restaurant = Restaurant.find(params[:id])
       render json: restaurant
     end
-
 end
