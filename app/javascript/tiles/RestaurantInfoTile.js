@@ -5,7 +5,7 @@ const RestaurantInfoTile = props => {
   let categories = [];
   if (props.restaurant.categories) {
     categories = props.restaurant.categories.map(category => {
-      return <CategoryTile key={category.id} name={category.name} />;
+      return <CategoryTile key={`cat_${category.id}`} name={category.name} />;
     });
   }
 

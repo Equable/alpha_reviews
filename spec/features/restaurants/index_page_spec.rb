@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature "Going to Restaurant Index page" do
   let!(:restaurant1) { FactoryBot.create(:restaurant) }
-  # let!(:restaurant2) { FactoryBot.create(:restaurant) }
   let!(:user) { FactoryBot.create(:user) }
 
   scenario "should show a unorder list of restaurants with links and the restaurant names" do

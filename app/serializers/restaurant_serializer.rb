@@ -6,6 +6,16 @@ class RestaurantSerializer < ActiveModel::Serializer
   end
 
   def reviews
-    object.reviews
+    reviews=[]
+    object.reviews.each do |review|
+      reviews << {
+        comment: review.comment,
+        id: review.id,
+        restaurant_id: review.restaurant_id,
+        rating: review.rating/20,
+        user_id: review.user_id
+      }
+    end
+    return reviews
   end
 end

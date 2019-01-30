@@ -27,8 +27,7 @@ class RestaurantContainer extends Component {
         if (response.ok) {
           return response;
         } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
+          let errorMessage = `${response.status} (${response.statusText})`, error = new Error(errorMessage);
           throw error;
         }
       })
@@ -36,7 +35,6 @@ class RestaurantContainer extends Component {
       .then(body => {
         this.setState({ restaurant: body.restaurant });
       })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   postReview(review){

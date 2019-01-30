@@ -33,7 +33,7 @@ class ReviewFormTile extends Component {
             </select>
             <label name='comment'>Answer:</label>
             <textarea name='comment' value={this.state.comment} onChange={this.handleChange}></textarea>
-            <input className= 'submit' type='submit' value='Submit'></input>
+            <input className="button submit" type='submit' value='Submit'></input>
           </form>
         </div>
       )
