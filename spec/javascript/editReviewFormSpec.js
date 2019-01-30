@@ -82,7 +82,6 @@ describe('ReviewEditFormTile', () => {
         expect(wrapper.find('.review-tile').nodes.length).toEqual(restaurant.restaurant.reviews.length - 1)
         wrapper.find('.edit-submit').first().simulate('submit')
         setTimeout(() => {
-          console.log(wrapper.debug())
           expect(wrapper.find('.review-tile > h4').first().render().text()).toEqual('Rating: 3/5')
           done()
         })
@@ -113,7 +112,6 @@ describe('ReviewEditFormTile', () => {
       setTimeout(() => {
         wrapper.find('.edit-submit').first().simulate('submit')
         setTimeout(() => {
-          console.log(wrapper.debug())
           expect(wrapper.find('.edit-review')).toBePresent()
           expect(wrapper.find('.review-tile').nodes.length).toEqual(restaurant.restaurant.reviews.length - 1)
           done()
