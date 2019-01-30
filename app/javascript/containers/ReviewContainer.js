@@ -2,8 +2,6 @@ import React, { Component } from "react"
 import ReviewEditFormTile from "../tiles/ReviewEditFormTile";
 import ReviewTile from "../tiles/ReviewTile"
 
-
-
 class ReviewContainer extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +28,6 @@ class ReviewContainer extends Component {
     let review = { review: this.state.review}
     this.updateReview(review)
   }
-
 
   updateReview(review) {
     fetch(`/api/v1/reviews/${this.state.review.id}`, {
@@ -66,7 +63,6 @@ class ReviewContainer extends Component {
   componentDidMount(){
     this.setState({review: this.props.review})
   }
-
 
   render() {
     let review =()=>{

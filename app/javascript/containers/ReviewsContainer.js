@@ -9,8 +9,6 @@ class ReviewsContainer extends Component {
         };
     }
 
-
-
     render() {
         let reviews = []
         if (this.props.reviews) {
