@@ -5,7 +5,9 @@
     <li>
       <%=link_to(restaurant) do %>
         <%= restaurant.name %>
-        <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button" %>
+        <% if current_user && current_user.admin %>
+          <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
+        <% end %>
       <%end%>
     </li>
     <% end %>
