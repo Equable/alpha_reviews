@@ -8,6 +8,7 @@ class Api::V1::ReviewsController < ApplicationController
     binding.pry
 
     if review.save
+      review.rating = review.rating / 20
       render json: {review: review}
     else
       render json: {error: review.errors.full_messages}, status: :unprocessable_entity
@@ -24,7 +25,8 @@ class Api::V1::ReviewsController < ApplicationController
     update_review = review_params
     update_review["rating"] = update_review["rating"].to_i * 20
     Review.update(params[:id], update_review)
-    render :template => 'restaurants/show.html.erb'
+    update_review["rating"] = update_review["rating"]/20
+    render json: update_review
     # redirect_to restaurant_path(update_review["restaurant_id"])
   end
 
