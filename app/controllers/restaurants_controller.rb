@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
 		@restaurants = Restaurant.all
 	end
 
-	def show 
+	def show
 		@restaurant = Restaurant.find(params[:id])
 	end
 
@@ -20,6 +20,17 @@ class RestaurantsController < ApplicationController
 		else
 			flash[:notice] = @restaurant.errors.full_messages.join(", ")
 			render :new
+		end
+	end
+
+	def destroy
+		@restaurant = Restaurant.find(params[:id])
+		if @restaurant.destroy
+			flash[:notice] = "Restaurant deleted successfully"
+			redirect_to restaurants_path
+		else
+			flash[:notice] = "ERROR: Restaurant was not deleted"
+			render :index
 		end
 	end
 
