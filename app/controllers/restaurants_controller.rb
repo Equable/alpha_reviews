@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
 		@restaurants = Restaurant.all
 	end
 
-	def show 
+	def show
 		@restaurant = Restaurant.find(params[:id])
 	end
 
@@ -21,6 +21,13 @@ class RestaurantsController < ApplicationController
 			flash[:notice] = @restaurant.errors.full_messages.join(", ")
 			render :new
 		end
+	end
+
+	def destroy
+		@restaurant = Restaurant.find(params[:id])
+		@restaurant.destroy
+
+		redirect_to restaurants_path
 	end
 
 	private
