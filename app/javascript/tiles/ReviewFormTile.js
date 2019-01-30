@@ -15,6 +15,7 @@ class ReviewFormTile extends Component {
     }
 
     render() {
+      debugger
       let handleSubmit = (event) => {
         event.preventDefault()
         this.props.handleSubmit(this.state)

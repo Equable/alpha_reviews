@@ -5,6 +5,7 @@ class Api::V1::ReviewsController < ApplicationController
     review = Review.new(review_params)
     review.user_id = current_user.id
     review.rating = review.rating * 20
+    binding.pry
 
     if review.save
       render json: {review: review}
