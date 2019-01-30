@@ -25,9 +25,9 @@ end
 
 
 restaurants = [
-	{ name: "Papa John's", street: '77 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Trash food for your face!', image: '', avg_rating: 1, avg_cost: '$'},
-	{ name: "Falafel King", street: '98 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Delicious', image: '', avg_rating: 4, avg_cost: '$$'},
-	{ name: "Wendy's", street: '75 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Simply the best', image: '', avg_rating: 5, avg_cost: '$$'}
+	{ name: "Papa John's", street: '77 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Cool pizza place!', image: '', avg_rating: 1, avg_cost: '$'},
+	{ name: "Falafel King", street: '98 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Delicious, right next door!', image: '', avg_rating: 4, avg_cost: '$$'},
+	{ name: "Wendy's", street: '75 Summer St', city: 'Boston', state: 'MA', zip: '02112', description: 'Simply the best and cheapest.', image: '', avg_rating: 5, avg_cost: '$$'}
 ]
 
 restaurants.each do |restaurant|
@@ -45,7 +45,7 @@ end
 reviews = [
 	{ rating: 60, user_id: 1, restaurant_id: 1, comment: "it was mediocre at best" },
 	{ rating: 80, user_id: 1, restaurant_id: 2, comment: "twas a delight"},
-  { rating: 80, user_id: 1, restaurant_id: 1, comment: "its garbage but its good garbage"}
+  { rating: 80, user_id: 1, restaurant_id: 1, comment: "it was pretty good I thought."}
 ]
 
 reviews.each do |review|

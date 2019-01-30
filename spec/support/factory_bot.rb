@@ -7,6 +7,7 @@ FactoryBot.define do
     password "password"
     password_confirmation "password"
     avatar { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/avatar.png'), 'image/png') }
+    admin {true}
   end
 
   factory :restaurant do

@@ -13,6 +13,7 @@ require 'capybara/rspec'
 require 'faker'
 require 'devise'
 
+
 require_relative 'support/controller_macros'
 
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -74,4 +75,5 @@ RSpec.configure do |config|
   # Use the following instead if you are on Devise <= 4.1.1
   # config.include Devise::TestHelpers, :type => :controller
   config.extend ControllerMacros, :type => :controller
+  config.include Warden::Test::Helpers
 end
