@@ -17,7 +17,7 @@ feature "Going to Restaurant Index page" do
     expect(page).to have_current_path("/restaurants/#{restaurant1.id}")
   end
 
-  scenario "I am able to delete a restaurant from the index page" do
+  scenario "An admin can delete a restaurant from the index page" do
     login_as user
     visit '/restaurants'
 
@@ -26,5 +26,11 @@ feature "Going to Restaurant Index page" do
     find(:xpath, "//a[@href='/restaurants/#{restaurant1.id}']", text:'Delete').click
     expect(page).not_to have_content(restaurant1.name)
     expect(page).to have_content('Restaurant deleted successfully')
+  end
+
+  scenario "A user can't delete a restaurant from the index page" do
+    visit '/restaurants'
+
+    expect(page).not_to have_content('Delete')
   end
 end
