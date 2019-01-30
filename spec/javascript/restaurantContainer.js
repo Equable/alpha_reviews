@@ -21,7 +21,7 @@ beforeEach(() => {
       reviews: [
           {
           id: 1,
-          rating: 80,
+          rating: 4,
           user_id: 1,
           restaurant_id: 1,
           comment: "review 1",
@@ -30,7 +30,7 @@ beforeEach(() => {
           },
           {
           id: 2,
-          rating: 100,
+          rating: 5,
           user_id: 2,
           restaurant_id: 1,
           comment: "review 2",
@@ -39,7 +39,7 @@ beforeEach(() => {
           },
           {
           id: 3,
-          rating: 60,
+          rating: 3,
           user_id: 3,
           restaurant_id: 1,
           comment: "review 3",
@@ -77,7 +77,7 @@ describe('RestaurantContainer', () => {
   it('should have review tiles with a rating', (done) => {
     setTimeout(() => {
       expect(wrapper.find('.review-tile').nodes.length).toEqual(restaurant.restaurant.reviews.length)
-      expect(wrapper.contains(<h4>Rating: {restaurant.restaurant.reviews[0].rating}/100</h4>)).toEqual(true)
+      expect(wrapper.contains(<h4>Rating: {restaurant.restaurant.reviews[0].rating}/5</h4>)).toEqual(true)
       done()
     }, 0)
   })
@@ -90,7 +90,7 @@ describe('RestaurantContainer', () => {
         comment: "test",
         created_at: "2019-01-28T22:37:03.535Z",
         id: 4,
-        rating: 100,
+        rating: 5,
         restaurant_id: 1,
         updated_at: "2019-01-28T22:37:03.535Z",
         user_id: 1
@@ -101,7 +101,7 @@ describe('RestaurantContainer', () => {
     let reviewLength = wrapper.find('.review-tile').nodes.length
     wrapper.find('.submit').simulate('submit')
     setTimeout(() => {
-      expect(wrapper.contains(<h4>Rating: 100/100</h4>)).toEqual(true)
+      expect(wrapper.contains(<h4>Rating: 5/5</h4>)).toEqual(true)
       expect(wrapper.contains(<p>test</p>)).toEqual(true)
       expect(wrapper.find('.review-tile').nodes.length).toEqual(reviewLength + 1)
       done()

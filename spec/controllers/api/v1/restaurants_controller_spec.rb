@@ -24,7 +24,7 @@ RSpec.describe Api::V1::RestaurantsController, type: :controller do
       returned_json = JSON.parse(response.body)
       reviews = returned_json["restaurant"]["reviews"][0]
 
-      expect(reviews["rating"].to_i).to eq(review1.rating)
+      expect(reviews["rating"].to_i).to eq(review1.rating / 20)
       expect(reviews["comment"]).to eq(review1.comment)
       expect(reviews["user_id"]).to eq(review1.user_id)
     end
