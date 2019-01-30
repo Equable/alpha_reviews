@@ -21,12 +21,16 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def update
+    debug = false
     update_review = review_params
     update_review["rating"] = update_review["rating"].to_i * 20
-    Review.update(params[:id], update_review)
-    update_review["rating"] = update_review["rating"]/20
-    render json: update_review
-    # redirect_to restaurant_path(update_review["restaurant_id"])
+    if Review.update(params[:id], update_review)
+      debug = true
+      render status: 200, json: update_review
+    else
+      debug = false
+      render status: 406, json: update_review
+    end
   end
 
   private

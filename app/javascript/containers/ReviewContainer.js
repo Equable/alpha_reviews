@@ -25,13 +25,13 @@ class ReviewContainer extends Component {
     review[event.target.name] = event.target.value
     this.setState({review: review})
   }
-  
+
   handleSubmit() {
     let review = { review: this.state.review}
     this.updateReview(review)
   }
-  
-  
+
+
   updateReview(review) {
     fetch(`/api/v1/reviews/${this.state.review.id}`, {
       method: 'PATCH',
@@ -55,7 +55,6 @@ class ReviewContainer extends Component {
       let rev = this.state.review
       rev.rating = body.rating
       rev.comment = body.comment
-
       this.setState({review: rev, edit: false})
     })
     .catch(error => {
@@ -63,12 +62,12 @@ class ReviewContainer extends Component {
       alert("there was a problem with the submission")
     });
   }
-  
+
   componentDidMount(){
     this.setState({review: this.props.review})
   }
-    
-    
+
+
   render() {
     let review =()=>{
       if(this.state.edit){

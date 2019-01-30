@@ -10,8 +10,8 @@ const ReviewEditFormTile = props => {
     props.handleSubmit()
   }
   return(
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="edit-review">
+      <form onSubmit={handleSubmit} method="PATCH">
         <label name='rating'>Rating: </label>
         <select name='rating' value={props.review.rating} onChange={handleChange}>
         <option value='0' hidden></option>
@@ -23,7 +23,7 @@ const ReviewEditFormTile = props => {
         </select>
         <label name='comment'>Answer:</label>
         <textarea name='comment' value={props.review.comment} onChange={handleChange}></textarea>
-        <input type='submit' className="button" value='Submit'></input>
+        <input type='submit' className="edit-submit" value='Submit'></input>
       </form>
     </div>
   )
