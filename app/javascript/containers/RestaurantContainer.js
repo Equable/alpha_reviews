@@ -37,7 +37,7 @@ class RestaurantContainer extends Component {
         this.setState({ restaurant: body.restaurant });
       })
   }
-  
+
   deleteReview(review_id){
     fetch(`/api/v1/reviews/${review_id}`, {
       method: 'DELETE',
@@ -94,7 +94,7 @@ class RestaurantContainer extends Component {
     let user = this.state.restaurant.user
     let form = null
     if (!this.state.restaurant.commented) { form = <ReviewFormTile handleSubmit={this.handleSubmit} />}
-    if(!user){user = 0}
+    if(!user){user = {id: 0}}
     return (
       <div>
         <h1>Restaurant Show Page</h1>
