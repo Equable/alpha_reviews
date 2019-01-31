@@ -24,9 +24,11 @@ class RestaurantSerializer < ActiveModel::Serializer
   end
 
   def commented
-    object.reviews.each do |review|
-      if review.user_id === current_user.id
-        return true
+    if current_user
+      object.reviews.each do |review|
+        if review.user_id === current_user.id
+          return true
+        end
       end
     end
     return false

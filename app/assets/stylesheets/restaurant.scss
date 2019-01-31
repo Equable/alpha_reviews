@@ -8,17 +8,10 @@ $height-of-buffer: rem-calc(70);
 
 .title {
   font-family: 'Permanent Marker', cursive;
-  font-size: 24px;
 }
 
 button {
   margin: 5px;
-}
-
-.top-bar-section li:not(.has-form) a:not(.button), .top-bar .name h1 a, .top-bar{
-  background: white;
-  color: black;
-  font-family: 'Permanent Marker', cursive;
 }
 
 #hero{
@@ -55,18 +48,9 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.title {
-  font-family: "Oswald", sans-serif;
-}
-
 .restaurant-title {
   font-size: 30px;
   font-weight: 700;
-}
-
-
-button {
-  margin: 5px;
 }
 
 .center-cropped {
@@ -76,10 +60,15 @@ button {
   width: 300px;
 }
 
-ul {
-  list-style-type: none;
-}
+// ul {
+//   list-style-type: none;
+// }
 
 .panel {
   border-radius: 10px;
+}
+
+.roboto{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
