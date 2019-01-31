@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'launchy'
 
 feature "Going to Restaurant Index page" do
   let!(:restaurant1) { FactoryBot.create(:restaurant) }
@@ -6,7 +7,6 @@ feature "Going to Restaurant Index page" do
 
   scenario "should show a unorder list of restaurants with links and the restaurant names" do
     visit '/restaurants'
-
     expect(page).to have_content(restaurant1.name)
   end
 
