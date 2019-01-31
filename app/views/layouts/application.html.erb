@@ -45,15 +45,15 @@
     </div>
   <%- end -%>
 
-  <div class="row">
-    <%= yield %>
-  </div>
-
   <% if current_user %>
     <% if current_user.admin == true %>
       <h1>You are an admin!</h1>
     <% end %>
   <% end %>
+
+  <div class="row">
+    <%= yield %>
+  </div>
 
   <%= javascript_include_tag 'application' %>
 
