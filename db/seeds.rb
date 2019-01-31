@@ -1,3 +1,15 @@
+users = [
+  { email: "Joe@gmail.com", password: "password", admin: false },
+  { email: "Louis@gmail.com", password: "password", admin: false },
+  { email: "Gil@gmail.com", password: "password", admin: false },
+  { email: "Tony@gmail.com", password: "password", admin: false },
+  { email: "Unicorn@gmail.com", password: "password", admin: false },
+  { email: "Admin@gmail.com", password: "password", admin: true }
+]
+
+users.each do |user|
+  User.create(user)
+end
 
 categories = [
     { name: "American" },
@@ -344,17 +356,4 @@ reviews = [
 
 reviews.each do |review|
 	Review.create(review)
-end
-
-users = [
-  { email: "Joe@gmail.com", password: "password", admin: false },
-  { email: "Louis@gmail.com", password: "password", admin: false },
-  { email: "Gil@gmail.com", password: "password", admin: false },
-  { email: "Tony@gmail.com", password: "password", admin: false },
-  { email: "Unicorn@gmail.com", password: "password", admin: false },
-  { email: "Admin@gmail.com", password: "password", admin: true }
-]
-
-users.each do |user|
-  User.create(user)
 end

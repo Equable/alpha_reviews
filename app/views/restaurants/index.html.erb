@@ -1,29 +1,19 @@
-<h1>Restaurant Index Page</h1>
-
-<ul>
+<div id="hero" class= "row">
+</div>
+<div class="restaurants row">
   <% @restaurants.each do |restaurant| %>
-    <div class="panel">
-      <li>
-        <%=link_to(restaurant) do %>
-          <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
-          <br>
-          <% if current_user && current_user.admin %>
-            <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        <%end%>
-      </li>
-      <% restaurant.categories.each do |category| %>
-
-        <%= category.name %>
-
+    <div class="restaurant small-11 column small-centered">
+      <%=link_to(restaurant) do %>
+        <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
+        <%= restaurant.description %> &nbsp
+        <br />
+        <%= image_tag(restaurant.image, class:"center-cropped") %>
+        <% if current_user && current_user.admin %>
+          <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
       <% end %>
-      <br />
-      <%= restaurant.description %>
-      <br />
-      <%= image_tag(restaurant.image, class:"center-cropped") %>
-    </div>
-    <br>
-    <br>
-    <% end %>
-  <%= link_to 'Add Restaurant', new_restaurant_path %>
-</ul>
+  <% end %>
+</div>
+
+<%= link_to 'Add Restaurant', new_restaurant_path %>
