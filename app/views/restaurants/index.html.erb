@@ -5,7 +5,7 @@
     <div class="restaurant small-11 column small-centered">
       <%=link_to(restaurant) do %>
         <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
-        <%= restaurant.description %>
+        <%= restaurant.description %> &nbsp
         <br />
         <%= image_tag(restaurant.image, class:"center-cropped") %>
         <% if current_user && current_user.admin %>
