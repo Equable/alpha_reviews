@@ -21,15 +21,26 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def update
-    debug = false
     update_review = review_params
     update_review["rating"] = update_review["rating"].to_i * 20
-    if Review.update(params[:id], update_review)
-      debug = true
-      render status: 200, json: update_review
+    if current_user.id === params["review"]["user_id"]
+      if Review.update(params[:id], update_review)
+        update_review["rating"] = update_review["rating"].to_i / 20
+        render status: 200, json: update_review
+      end
     else
-      debug = false
       render status: 406, json: update_review
+    end
+  end
+
+  def destroy
+    review= Review.find(params["review_id"].to_i)
+    if review.user_id === current_user.id
+      if review.delete
+        render status: 202, json: {junk: "dont look im naked!"}
+      end
+    else
+      render status: 404, json: {junk: "woopsie poopsy"}
     end
   end
 

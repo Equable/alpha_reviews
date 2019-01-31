@@ -40,31 +40,31 @@
     </nav>
   </div>
 
-    <%- flash.each do |key, value| -%>
-      <div class="flash flash-<%= key %>">
-        <%= value %>
-      </div>
-    <%- end -%>
-    <div class="top-buffer"></div>
-    <div class="row parent-row">
-      <%= yield %>
+  <div class="top-buffer"></div>
+  <%- flash.each do |key, value| -%>
+    <div class="roboto text-center">
+      <%= value %>
     </div>
+  <%- end -%>
+  <div class="row parent-row">
+    <%= yield %>
+  </div>
 
-    <% if current_user %>
-      <% if current_user.admin == true %>
-        <h1>You are an admin!</h1>
-      <% end %>
+  <% if current_user %>
+    <% if current_user.admin == true %>
+      <h1>You are an admin!</h1>
     <% end %>
+  <% end %>
 
-    <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application' %>
 
-    <%- if Rails.env.development? || Rails.env.test? -%>
-      <%= javascript_tag do %>
-        window.railsEnv = '<%= Rails.env %>'
-      <%- end -%>
+  <%- if Rails.env.development? || Rails.env.test? -%>
+    <%= javascript_tag do %>
+      window.railsEnv = '<%= Rails.env %>'
     <%- end -%>
-    <%= javascript_pack_tag 'application' %>
+  <%- end -%>
+  <%= javascript_pack_tag 'application' %>
 
-    <%= yield :extra_footer %>
+  <%= yield :extra_footer %>
 </body>
 </html>
