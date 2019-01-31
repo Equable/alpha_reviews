@@ -71,11 +71,13 @@ class RestaurantContainer extends Component {
   }
 
   render() {
+    let user = this.state.restaurant.user
+    if(!user){user = 0}
     return (
       <div>
         <h1>Restaurant Show Page</h1>
         <RestaurantInfoTile restaurant= {this.state.restaurant}/>
-        <ReviewsContainer reviews= {this.state.restaurant.reviews} />
+        <ReviewsContainer reviews= {this.state.restaurant.reviews} user={user}/>
         <ReviewFormTile handleSubmit={this.handleSubmit}/>
 
       </div>

@@ -8,7 +8,8 @@ class ReviewContainer extends Component {
     this.state = {
       edit: false,
       review: {},
-      vote_status: {}
+      vote_status: {},
+      loggedIn:false
     };
     this.handleEditClick = this.handleEditClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -62,8 +63,11 @@ class ReviewContainer extends Component {
   }
 
   componentDidMount(){
-    this.setState({review: this.props.review})
-    this.setState({vote_status: this.props.review.vote_status})
+    this.setState({
+      review: this.props.review,
+      loggedIn: this.props.loggedIn,
+      vote_status: this.props.review.vote_status
+      })
   }
 
   render() {
@@ -75,17 +79,19 @@ class ReviewContainer extends Component {
       }
 
       if(this.state.edit){
-        return <ReviewEditFormTile 
-                  handleSubmit={this.handleSubmit} 
-                  review={this.state.review} 
+        return <ReviewEditFormTile
+                  handleSubmit={this.handleSubmit}
+                  review={this.state.review}
                   handleChange={this.handleChange}
                   vote_status={this.state.vote_status}
                   />
       } else{
-        return <ReviewTile 
-                  review={this.state.review} 
-                  onClick={this.handleEditClick} 
+        return <ReviewTile
+                  review={this.state.review}
+                  onClick={this.handleEditClick}
                   vote_status={this.state.vote_status}
+                  visible={this.state.loggedIn}
+                  key={`RevT_${this.state.review.id}`}
                   />
       }
     }
