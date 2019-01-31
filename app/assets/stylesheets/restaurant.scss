@@ -2,8 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$height-of-buffer: rem-calc(70);
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import 'foundation/functions';
+$height-of-buffer: rem-calc(70);
+
+
 .title {
   font-family: 'Permanent Marker', cursive;
   font-size: 24px;
@@ -17,9 +20,6 @@ button {
   background: white;
   color: black;
   font-family: 'Permanent Marker', cursive;
-}
-.top-bar-section li:not(.has-form) a:not(.button){
-
 }
 
 #hero{
