@@ -2,14 +2,21 @@
 
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li>
-      <%=link_to(restaurant) do %>
-        <%= restaurant.name %>
-        <% if current_user && current_user.admin %>
-          <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      <%end%>
-    </li>
+    <div class="panel">
+      <li>
+        <%=link_to(restaurant) do %>
+          <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
+          <br>
+          <%= image_tag(restaurant.image, class:"center-cropped") %>
+          <% if current_user && current_user.admin %>
+            <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        <%end%>
+      </li>
+      <%= restaurant.description %>
+    </div>
+    <br>
+    <br>
     <% end %>
   <%= link_to 'Add Restaurant', new_restaurant_path %>
 </ul>
