@@ -13,13 +13,16 @@ class RestaurantSerializer < ActiveModel::Serializer
     reviews=[]
     object.reviews.each do |review|
 
-      if current_user && review.votes.where(user_id: current_user.id, review_id: review.id).first.status
-        vote_status = 1
-        vote_id = review.votes.where(user_id: current_user.id, review_id: review.id).first.id
-      elsif current_user && !review.votes.where(user_id: current_user.id, review_id: review.id).first
-        vote_status = -1
-        vote_id = review.votes.where(user_id: current_user.id, review_id: review.id).first.id
-      else
+      begin 
+        vote = review.votes.where(user_id: current_user.id, review_id: review.id).first
+        if vote.status == true
+          vote_status = 1
+          vote_id = vote.id
+        elsif vote.status == false
+          vote_status = -1
+          vote_id = vote.id
+        end
+      rescue
         vote_status = 0
         vote_id = nil
       end
@@ -35,8 +38,8 @@ class RestaurantSerializer < ActiveModel::Serializer
         vote_status: vote_status,
         vote_id: vote_id
       }
-
     end
+
     return reviews
   end
 end

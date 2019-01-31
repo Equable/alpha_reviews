@@ -1,15 +1,16 @@
-<h1>Restaurant Index Page</h1>
-
-<ul>
+<div id="hero" class= "row">
+</div>
+<div class="restaurants row">
   <% @restaurants.each do |restaurant| %>
-    <li>
+    <div class="restaurant small-11 column small-centered">
       <%=link_to(restaurant) do %>
         <%= restaurant.name %>
         <% if current_user && current_user.admin %>
           <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
         <% end %>
-      <%end%>
-    </li>
-    <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
   <%= link_to 'Add Restaurant', new_restaurant_path %>
-</ul>
+</div>

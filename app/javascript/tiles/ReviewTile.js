@@ -20,9 +20,9 @@ const ReviewTile = props => {
       {buttons}
       <div className="row">
         <div className="small-6 column ">
-          <button className="upvote" onClick={props.onClick}>Upvotes: {props.review.upvotes}</button>
-          <button className="downvote" onClick={props.onClick}>Downvotes: {props.review.downvotes}</button>
-          <p> User Vote Status: {props.review.vote_status}, ID: {props.review.vote_id} </p>
+          <button className="upvote success" onClick={props.upvote_click}>Upvotes: {props.upvotes}</button>
+          <button className="downvote alert" onClick={props.downvote_click}>Downvotes: {props.downvotes}</button>
+          <p> User Vote Status: {props.vote_status}, ID: {props.review.vote_id} </p>
         </div>
       </div>
     </div>

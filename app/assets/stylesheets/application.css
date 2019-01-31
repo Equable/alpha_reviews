@@ -16,3 +16,9 @@
  *= require font-awesome
 
  */
+.hero{
+  background-image: url('../images/hero-image-slogan-web.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+}

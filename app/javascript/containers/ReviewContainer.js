@@ -8,13 +8,19 @@ class ReviewContainer extends Component {
     this.state = {
       edit: false,
       review: {},
-      vote_status: {},
-      loggedIn:false
+      vote_status: 0,
+      upvotes: 0,
+      downvotes: 0,
+      vote_id: false,
+      loggedIn:false,
+      user_id: ''
     };
     this.handleEditClick = this.handleEditClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.updateReview = this.updateReview.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleUpVoteClick = this.handleUpVoteClick.bind(this)
+    this.handleDownVoteClick = this.handleDownVoteClick.bind(this)
   }
   handleEditClick(){
     this.setState({edit: true})
@@ -62,20 +68,142 @@ class ReviewContainer extends Component {
     });
   }
 
+  deleteVote(vote) {
+    fetch(`/api/v1/votes/${this.state.vote_id}`, {
+      method: 'DELETE',
+      body: JSON.stringify(vote),
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`, error = new Error(errorMessage)
+        throw (error)
+      }
+    })
+    .catch(error => {
+      console.error(`Error in fetch: ${error.message}`),
+      alert("there was a problem with the submission")
+    });
+  }
+
+  postVote(vote){
+    fetch("/api/v1/votes/", {
+      method: 'POST',
+      body: JSON.stringify(vote),
+      credentials: 'same-origin',
+      headers:{
+        'Accept' : 'application/json',
+        'Content-Type' : 'application/json'
+      }
+    })
+    .then(response => {
+      if(response.ok){
+        return response
+      } else {
+        let errorMessage= `${response.status} (${response.statusText})`, error = new Error(errorMessage)
+        throw(error)
+      }
+    })
+  }
+
+
+
+  handleUpVoteClick(){
+    if (this.state.vote_status === 1) {
+      this.setState({
+        vote_status: 0, 
+        upvotes: this.state.upvotes -= 1
+      })
+      this.deleteVote()
+    }
+    else if (this.state.vote_status === -1) {
+      this.setState({
+        vote_status: 1, 
+        upvotes: this.state.upvotes += 1, 
+        downvotes: this.state.downvotes -= 1
+      })
+      this.deleteVote()
+      let vote = {
+        user_id: this.state.user_id, 
+        review_id: this.state.review.id, 
+        status: true
+      }
+      this.postVote(vote)
+    }
+    else if (this.state.vote_status === 0) {
+      let vote = {
+        user_id: this.state.user_id, 
+        review_id: this.state.review.id, 
+        status: true}
+      this.postVote(vote)
+    }
+  }
+
+  handleDownVoteClick(){
+    if (this.state.vote_status === -1) {
+      this.setState({
+        vote_status: 0, 
+        downvotes: this.state.downvotes -= 1})
+      this.deleteVote()
+    }
+    else if (this.state.vote_status === 1) {
+      this.setState({
+        vote_status: -1, 
+        downvotes: this.state.downvotes += 1, 
+        upvotes: this.state.upvotes -= 1})
+      this.deleteVote()
+      let vote = {
+        user_id: this.state.user_id, 
+        review_id: this.state.review.id, 
+        status: 0}
+      this.postVote(vote)
+    }
+    else if (this.state.vote_status === 0) {
+      this.setState({
+        vote_status: -1, 
+        downvotes: this.state.downvotes += 1
+      })
+      let vote = {
+        user_id: this.state.user_id, 
+        review_id: this.state.review.id, 
+        status: 0
+      }
+      this.postVote(vote)
+    }
+  }
+
   componentDidMount(){
     this.setState({
       review: this.props.review,
       loggedIn: this.props.loggedIn,
-      vote_status: this.props.review.vote_status
+      vote_status: this.props.review.vote_status,
+      upvotes: this.props.review.upvotes,
+      downvotes: this.props.review.downvotes,
+      vote_id: this.props.review.vote_id,
+      user_id: this.props.user.id
       })
   }
+
 
   render() {
     let review =()=>{
 
-      let vote_button_class
-      if (this.state.vote_status) {
-        vote_button_class = ''
+      let you_voted 
+
+      if ( this.state.vote_status === 1 ) {
+        you_voted = "You Upvoted this! :D"
+      }
+      else if ( this.state.vote_status === -1 ) {
+        you_voted = "You Downvoted this! D:"
+      }
+      else {
+        you_voted = "You haven't voted! T_T"
       }
 
       if(this.state.edit){
@@ -83,13 +211,16 @@ class ReviewContainer extends Component {
                   handleSubmit={this.handleSubmit}
                   review={this.state.review}
                   handleChange={this.handleChange}
-                  vote_status={this.state.vote_status}
                   />
       } else{
         return <ReviewTile
                   review={this.state.review}
                   onClick={this.handleEditClick}
-                  vote_status={this.state.vote_status}
+                  vote_status={you_voted}
+                  upvotes={this.state.upvotes}
+                  downvotes={this.state.downvotes}
+                  upvote_click={this.handleUpVoteClick}
+                  downvote_click={this.handleDownVoteClick}
                   visible={this.state.loggedIn}
                   key={`RevT_${this.state.review.id}`}
                   />
