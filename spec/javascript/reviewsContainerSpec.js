@@ -35,9 +35,10 @@ beforeEach(() => {
         updated_at: "2019-01-28T15:15:30.190Z"
         }
       ]
-    }
+  }
+  let user = {id: 1}
   wrapper = mount(
-    <ReviewsContainer reviews={reviews.reviews}/>
+    <ReviewsContainer user={user}reviews={reviews.reviews}/>
   );
 });
 
@@ -58,15 +59,15 @@ describe('ReviewsContainer', () => {
 
   it('edit buttons render', (done) => {
     setTimeout(() => {
-      expect(wrapper.find('.edit').nodes[0].innerHTML).toEqual('Edit')
-      expect(wrapper.find('.edit').nodes.length).toEqual(reviews.reviews.length)
+      expect(wrapper.find('.edit').text()).toEqual('Edit')
+      expect(wrapper.find('.edit').nodes.length).not.toEqual(reviews.reviews.length)
       done()
     }, 0)
   })
 
   it('edit form appears when clicking edit button', (done) => {
     setTimeout(() => {
-      wrapper.find('.edit').first().simulate('click')
+      wrapper.find('.edit').simulate('click')
       setTimeout(() => {
         expect(wrapper.find('.edit-review')).toBePresent()
         done()

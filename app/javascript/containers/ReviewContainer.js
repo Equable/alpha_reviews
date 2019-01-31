@@ -8,12 +8,16 @@ class ReviewContainer extends Component {
     this.state = {
       edit: false,
       review: {},
+<<<<<<< HEAD
       vote_status: 0,
       upvotes: 0,
       downvotes: 0,
       vote_id: false,
       loggedIn:false,
       user_id: ''
+=======
+      loggedIn:false
+>>>>>>> 39dc30fb582990552df40461c0bad1b4c591cb8f
     };
     this.handleEditClick = this.handleEditClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -179,6 +183,7 @@ class ReviewContainer extends Component {
   }
 
   componentDidMount(){
+<<<<<<< HEAD
     this.setState({
       review: this.props.review,
       loggedIn: this.props.loggedIn,
@@ -188,10 +193,16 @@ class ReviewContainer extends Component {
       vote_id: this.props.review.vote_id,
       user_id: this.props.user.id
       })
+=======
+    this.setState({review: this.props.review, loggedIn: this.props.loggedIn})
+>>>>>>> 39dc30fb582990552df40461c0bad1b4c591cb8f
   }
 
 
   render() {
+    let deleteClick = () =>{
+      this.props.deleteReview(this.state.review.id)
+    }
     let review =()=>{
 
       let you_voted 
@@ -213,6 +224,7 @@ class ReviewContainer extends Component {
                   handleChange={this.handleChange}
                   />
       } else{
+<<<<<<< HEAD
         return <ReviewTile
                   review={this.state.review}
                   onClick={this.handleEditClick}
@@ -224,6 +236,9 @@ class ReviewContainer extends Component {
                   visible={this.state.loggedIn}
                   key={`RevT_${this.state.review.id}`}
                   />
+=======
+        return <ReviewTile key={`RevT_${this.state.review.id}`} review={this.state.review} onClick={this.handleEditClick} visible={this.state.loggedIn} delete={deleteClick}/>
+>>>>>>> 39dc30fb582990552df40461c0bad1b4c591cb8f
       }
     }
     return (

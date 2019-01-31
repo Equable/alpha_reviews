@@ -7,6 +7,7 @@ let wrapper;
 let restaurant;
 
 beforeEach(() => {
+  fetchMock.restore()
   restaurant = {
     restaurant:{
       id: 1,
@@ -44,8 +45,19 @@ beforeEach(() => {
           created_at: "2019-01-28T15:15:30.190Z",
           updated_at: "2019-01-28T15:15:30.190Z"
           }
-        ]
-      }
+      ],
+      user: {
+        id: 1,
+        email: "louis@gmail.com",
+        created_at: "2019-01-31T21:31:05.127Z",
+        updated_at: "2019-01-31T21:31:05.127Z",
+        admin: false,
+        avatar: {
+          url: null
+        }
+      },
+      commented: true
+    }
   }
   fetchMock.get('/api/v1/restaurants/1', {
     status: 200,
@@ -77,10 +89,10 @@ describe('ReviewEditFormTile', () => {
 
     setTimeout(() => {
       expect(wrapper.find('.review-tile > h4').first().render().text()).toEqual(`Rating: ${restaurant.restaurant.reviews[0].rating}/5`)
-      wrapper.find('.edit').first().simulate('click')
+      wrapper.find('.edit').simulate('click')
       setTimeout(() => {
         expect(wrapper.find('.review-tile').nodes.length).toEqual(restaurant.restaurant.reviews.length - 1)
-        wrapper.find('.edit-submit').first().simulate('submit')
+        wrapper.find('.edit-submit').simulate('submit')
         setTimeout(() => {
           expect(wrapper.find('.review-tile > h4').first().render().text()).toEqual('Rating: 3/5')
           done()
@@ -108,9 +120,9 @@ describe('ReviewEditFormTile', () => {
 
     setTimeout(() => {
       expect(wrapper.find('.review-tile > h4').first().render().text()).toEqual(`Rating: ${restaurant.restaurant.reviews[0].rating}/5`)
-      wrapper.find('.edit').first().simulate('click')
+      wrapper.find('.edit').simulate('click')
       setTimeout(() => {
-        wrapper.find('.edit-submit').first().simulate('submit')
+        wrapper.find('.edit-submit').simulate('submit')
         setTimeout(() => {
           expect(wrapper.find('.edit-review')).toBePresent()
           expect(wrapper.find('.review-tile').nodes.length).toEqual(restaurant.restaurant.reviews.length - 1)
