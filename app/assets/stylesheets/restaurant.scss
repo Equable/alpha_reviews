@@ -1,9 +1,17 @@
 // Place all the styles related to the Restaurant controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+<<<<<<< HEAD
 @import 'foundation/functions';
 $height-of-buffer: rem-calc(70);
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+=======
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+>>>>>>> 70661b10b50a920b60ec4873b9e46821fb595bcb
 .title {
   font-family: 'Permanent Marker', cursive;
   font-size: 24px;
@@ -11,10 +19,21 @@ $height-of-buffer: rem-calc(70);
 body{
   
 }
+<<<<<<< HEAD
+=======
+
+.restaurant-title {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+
+>>>>>>> 70661b10b50a920b60ec4873b9e46821fb595bcb
 button {
   margin: 5px;
 }
 
+<<<<<<< HEAD
 
 .top-bar-section li:not(.has-form) a:not(.button), .top-bar .name h1 a, .top-bar{
   background: white;
@@ -51,3 +70,19 @@ button {
 .top-buffer{
   height: $height-of-buffer;
 }
+=======
+.center-cropped {
+  object-fit: cover;
+  object-position: center;
+  height: 200px;
+  width: 300px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.panel {
+  border-radius: 10px;
+}
+>>>>>>> 70661b10b50a920b60ec4873b9e46821fb595bcb
