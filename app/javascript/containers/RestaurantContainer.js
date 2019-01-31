@@ -16,7 +16,6 @@ class RestaurantContainer extends Component {
     this.deleteReview = this.deleteReview.bind(this)
   }
 
-
   componentDidMount() {
     let id = this.props.params.id;
     this.fetchRestaurantData(id)
