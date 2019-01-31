@@ -7,7 +7,8 @@ class ReviewContainer extends Component {
     super(props);
     this.state = {
       edit: false,
-      review: {}
+      review: {},
+      vote_status: {}
     };
     this.handleEditClick = this.handleEditClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -62,14 +63,30 @@ class ReviewContainer extends Component {
 
   componentDidMount(){
     this.setState({review: this.props.review})
+    this.setState({vote_status: this.props.review.vote_status})
   }
 
   render() {
     let review =()=>{
+
+      let vote_button_class
+      if (this.state.vote_status) {
+        vote_button_class = ''
+      }
+
       if(this.state.edit){
-        return <ReviewEditFormTile handleSubmit={this.handleSubmit} review={this.state.review} handleChange={this.handleChange}/>
+        return <ReviewEditFormTile 
+                  handleSubmit={this.handleSubmit} 
+                  review={this.state.review} 
+                  handleChange={this.handleChange}
+                  vote_status={this.state.vote_status}
+                  />
       } else{
-        return <ReviewTile review={this.state.review} onClick={this.handleEditClick} />
+        return <ReviewTile 
+                  review={this.state.review} 
+                  onClick={this.handleEditClick} 
+                  vote_status={this.state.vote_status}
+                  />
       }
     }
     return (

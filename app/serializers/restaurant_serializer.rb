@@ -13,9 +13,27 @@ class RestaurantSerializer < ActiveModel::Serializer
         id: review.id,
         restaurant_id: review.restaurant_id,
         rating: review.rating/20,
-        user_id: review.user_id
+        user_id: review.user_id,
+        upvotes: review.votes.where(status: true).count,
+        downvotes: review.votes.where(status: false).count,
+        vote_status: false,
+        vote_id: false
       }
+      
+      if current_user
+        review[:vote_status] = review.votes.where(user_id: current_user.id, review_id: review.id).first.status
+        review[:vote_id] = review.votes.where(user_id: current_user.id, review_id: review.id).first.id
+      end
+
+
+
+      if review[:vote_status]
+        review[:vote_status] = 1
+      elsif !review[:vote_status]
+        review[:vote_status] = -1
+      end
     end
+
     return reviews
   end
 end

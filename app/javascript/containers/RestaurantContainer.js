@@ -8,7 +8,8 @@ class RestaurantContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      restaurant: {}
+      restaurant: {},
+      user: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.postReview=this.postReview.bind(this)
@@ -33,7 +34,8 @@ class RestaurantContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        this.setState({ restaurant: body.restaurant });
+        this.setState({ restaurant: body.restaurant })
+        this.setState({ user: body.user });
       })
   }
 
