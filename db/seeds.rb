@@ -42,6 +42,15 @@ categorizations.each do |categorization|
 	Categorization.create(categorization)
 end
 
+users = [
+  { email: "user@test.com", password: "password", admin: false },
+  { email: "admin@test.com", password: "password", admin: true }
+]
+
+users.each do |user|
+  User.create(user)
+end
+
 reviews = [
 	{ rating: 60, user_id: 1, restaurant_id: 1, comment: "it was mediocre at best" },
 	{ rating: 80, user_id: 1, restaurant_id: 2, comment: "twas a delight"},
@@ -50,13 +59,4 @@ reviews = [
 
 reviews.each do |review|
 	Review.create(review)
-end
-
-users = [
-  { email: "user@test.com", password: "password", admin: false },
-  { email: "admin@test.com", password: "password", admin: true }
-]
-
-users.each do |user|
-  User.create(user)
 end
