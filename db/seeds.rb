@@ -9,11 +9,10 @@ categories = [
     { name: "Coffee & Tea" },
     { name: "Delis" },
     { name: "Falafel" },
-    { name: "Fast" },
-    { name: "Food" },
+    { name: "Fast Food" },
     { name: "Food Trucks" },
     { name: "Halal" },
-    { name: "italian" },
+    { name: "Italian" },
     { name: "Japanese" },
     { name: "Latin American" },
     { name: "Mediterranean" },
@@ -78,7 +77,47 @@ restaurants.each do |restaurant|
 end
 
 categorizations = [
-	{restaurant: Restaurant.first, category: Category.fifth}
+	{restaurant: Restaurant.find(1), category: Category.find(16)},
+	{restaurant: Restaurant.find(1), category: Category.find(20)},
+	{restaurant: Restaurant.find(1), category: Category.find(18)},
+	{restaurant: Restaurant.find(2), category: Category.find(17)},
+	{restaurant: Restaurant.find(2), category: Category.find(9)},
+	{restaurant: Restaurant.find(3), category: Category.find(4)},
+	{restaurant: Restaurant.find(3), category: Category.find(10)},
+	{restaurant: Restaurant.find(4), category: Category.find(18)},
+	{restaurant: Restaurant.find(4), category: Category.find(21)},
+	{restaurant: Restaurant.find(4), category: Category.find(13)},
+	{restaurant: Restaurant.find(5), category: Category.find(18)},
+	{restaurant: Restaurant.find(5), category: Category.find(20)},
+	{restaurant: Restaurant.find(6), category: Category.find(16)},
+	{restaurant: Restaurant.find(6), category: Category.find(2)},
+	{restaurant: Restaurant.find(7), category: Category.find(5)},
+	{restaurant: Restaurant.find(7), category: Category.find(3)},
+	{restaurant: Restaurant.find(8), category: Category.find(13)},
+	{restaurant: Restaurant.find(9), category: Category.find(1)},
+	{restaurant: Restaurant.find(9), category: Category.find(4)},
+	{restaurant: Restaurant.find(9), category: Category.find(21)},
+	{restaurant: Restaurant.find(10), category: Category.find(8)},
+	{restaurant: Restaurant.find(10), category: Category.find(3)},
+	{restaurant: Restaurant.find(10), category: Category.find(21)},
+	{restaurant: Restaurant.find(11), category: Category.find(21)},
+	{restaurant: Restaurant.find(11), category: Category.find(15)},
+	{restaurant: Restaurant.find(12), category: Category.find(23)},
+	{restaurant: Restaurant.find(12), category: Category.find(7)},
+	{restaurant: Restaurant.find(12), category: Category.find(8)},
+	{restaurant: Restaurant.find(13), category: Category.find(6)},
+	{restaurant: Restaurant.find(14), category: Category.find(12)},
+	{restaurant: Restaurant.find(14), category: Category.find(16)},
+	{restaurant: Restaurant.find(14), category: Category.find(10)},
+	{restaurant: Restaurant.find(15), category: Category.find(23)},
+	{restaurant: Restaurant.find(16), category: Category.find(14)},
+	{restaurant: Restaurant.find(16), category: Category.find(22)},
+	{restaurant: Restaurant.find(16), category: Category.find(19)},
+	{restaurant: Restaurant.find(17), category: Category.find(17)},
+	{restaurant: Restaurant.find(17), category: Category.find(12)},
+	{restaurant: Restaurant.find(18), category: Category.find(8)},
+	{restaurant: Restaurant.find(18), category: Category.find(21)},
+	{restaurant: Restaurant.find(19), category: Category.find(8)}
 ]
 
 categorizations.each do |categorization|
@@ -122,7 +161,7 @@ reviews = [
   Would keep going to this place till am around in Boston." },
   { rating: 80, user_id: 6, restaurant_id: 2, comment: "Quick and easy lunch in a small restaurant. They move the queue through here quite quickly and most of them are takeaway. There is seating inside for maybe 25 or so.
 
-  Simple enough for Middle Eastern food. Grilled chicken or beef shawarma, falafel and sides. I chose the "veggie sampler platter" and was handed a fresh falafel to nibble on while I went through the line. Everyone got one, which is a nice feature.
+  Simple enough for Middle Eastern food. Grilled chicken or beef shawarma, falafel and sides. I chose the veggie sampler platter and was handed a fresh falafel to nibble on while I went through the line. Everyone got one, which is a nice feature.
 
   Unwrapping my styrofoam box, we have a salad base in a light dressing, tabouli, hummus, baba ganoush and all of it drizzled with a light sauce. Very tasty, very filling and very high in carbs. It was naptime at around 3:00 pm. lol
 
@@ -146,7 +185,7 @@ reviews = [
   { rating: 60, user_id: 7, restaurant_id: 4, comment: "Visiting from California all the food in Boston has been pleasant, but this place really hit the spot and the service was so friendly I felt at home. My sister and I had a steak and cheese sub and it was the most satisfying meal we've had since we've been here. I would love to come back here every time I visit Boston." },
   { rating: 80, user_id: 6, restaurant_id: 5, comment: "Eating plant based while traveling is often an exercise in frustration, taking in the sights and smells of comforting foods you can't control while scrolling down the menu looking for something more filling than a salad.
 
-  I explored the Oath menu more ought of a voyeuristic desire to vicariously enjoy the artisan pizza of others and to my thin crusted delight, they had a build-your-own "selfie" pizza with vegan cheese options!
+  I explored the Oath menu more ought of a voyeuristic desire to vicariously enjoy the artisan pizza of others and to my thin crusted delight, they had a build-your-own selfie pizza with vegan cheese options!
 
   We built ours with mushrooms, spinach, scallions, marinara sauce and basil, and to our surprise, it was the best vegan pizza we ever had. The thin crust, which I don't usually prefer, has a crispy exterior but soft interior.
 
@@ -182,7 +221,7 @@ reviews = [
   For me personally, one bowl is no longer enough food. The pita they serve is too small to even use all the hummus, whereas previously it used to be the other way around. And for a total cost of nearly $12 it's not worth it with all the other higher-value options in the area." },
   { rating: 100, user_id: 1, restaurant_id: 6, comment: "Quick lunch here at Bonapita today. They don't have a huge menu but that is what gets things moving along. A few choices for bases (salad, plate, pita sandwich) and a few choices for proteins (marinated chicken, beef meatballs, black bean & beet patties, mushrooms) topped and ready to go.
 
-  I chose the chicken with a "fill it" and added spicy hummus. The sandwich was very good. Great flavors and textures with crunchy veggies and a sauce, nicely filled with a good serving of spicy chicken. The hummus in a small pot added nothing and I'd probably skip this next time.
+  I chose the chicken with a fill it and added spicy hummus. The sandwich was very good. Great flavors and textures with crunchy veggies and a sauce, nicely filled with a good serving of spicy chicken. The hummus in a small pot added nothing and I'd probably skip this next time.
 
   A good lunch and not expensive at all." },
   { rating: 20, user_id: 1, restaurant_id: 7, comment: "Short and sweet- I am pregnant and my husband brought home a chicken salad wrap for me one day.. and now it is ALL I WANT. If it weren't totally weird, I would go get one every single day. Very good!!" },
@@ -209,7 +248,7 @@ reviews = [
 
   To balance out the salad, we got a green chile burger which was stuffed with bacon. The chile was pretty spicy and I found myself reaching for the mocha shake frequently to quell the spice. The burger was greasy and delicious, but hey I had a salad so the calories balance out right?
 
-  Even the mocha shake tasted "healthy." It didn't taste sweet at all so you don't get a crazy sugar crash after.
+  Even the mocha shake tasted healthy. It didn't taste sweet at all so you don't get a crazy sugar crash after.
 
   The fries were disappointing though. We got them for free as part of the mobile app deal. The regular fries were a little burnt and the sweet potato fries were soggy. Will definitely come back for the salads and burgers but will skip the fries." },
   { rating: 40, user_id: 8, restaurant_id: 9, comment: "I love B Good! This particular location has disappointingly poor service though. Today I ordered 2 burgers and sat down to wait for my food. After ten minutes I looked up and realized there was not a single person behind the counter. I got up and had to ask the employees sitting in the corner why no one was cooking my food. Only then did a cook come out from the back and start on the orders.
@@ -228,11 +267,9 @@ reviews = [
   { rating: 20, user_id: 8, restaurant_id: 10, comment: "Archie's has the best Italian sandwiches period. I travel from SoCal to Boston for their sandwiches. I wish I could get them out here. The service is outstanding and Michael always takes great care of me and my son who is going to college out there. Can't wait to go back." },
   { rating: 60, user_id: 7, restaurant_id: 10, comment: "Had Archie's for the first time today, went with the Italian, I have to say it was perfectly balanced and under $8/how can you beat it!! Absolutely delicious!! The service was fast and super friendly!! I am going to say that I bet almost every item on the menu is just as good and if not better!! I will be back for sure, maybe breakfast tomorrow :) Enjoy!!" },
   { rating: 80, user_id: 6, restaurant_id: 11, comment: "A solid lunch place downtown. Spicy Chilean sandwiches are packed with flavor. They don't have a lot of options here, but they do their sandwiches really well. I recommend getting a large combo sandwich with everything on it. I would not recommend their sweet potato fries. The fries are spinning in a reheated glass thing and get quite soggy. Most people claim the sandwich is too spicy, but I would try it at least once. It's pretty weird to eat a sandwich with green beans in it, but I guess it works?!" },
-  { rating: 100, user_id: 5, restaurant_id: 11, comment: "KISS - "Keep It Simple and Short. Also, Stick to what you're good at. And Chacarero does that and they do it well with a very short menu of Chilean-style sandwiches. Not a tremendous amount of variety here with the "Original" and the "B-B-Que" in chicken or beef or chicken and beef. A vegetarian option as well. Large or small.
+  { rating: 100, user_id: 5, restaurant_id: 11, comment: "A few other side items but the big sellers are the sandwiches. Order and at the register, then work your way through the rope lines where the sandwiches are prepared in order. Easy.
 
-  A few other side items but the big sellers are the sandwiches. Order and at the register, then work your way through the rope lines where the sandwiches are prepared in order. Easy.
-
-  Bruce says, go with the original in chicken or beef (I chose beef) and all the way which includes a spicy sauce, Muenster cheese, tomatoes, avocado spread and, yes, steamed green beans. Trust me, they're delicious.
+  Bruce says, go with the original in chicken or beef (I chose beef) and all the way which includes a spicy sauce, Muenster cheese, tomatoes, avocado spread and, yes, steamed green beans. Trust me, theyre delicious.
 
   Coolers with drinks are available and a very few tables for dining in." },
   { rating: 40, user_id: 4, restaurant_id: 11, comment: "Traditional Combo Extra Spicy is the way to go. Can't complain. Quick service during lunchtime and staff is always recepting to requests" },
@@ -318,13 +355,12 @@ reviews = [
   This this place is the best on earth, hard to find, a diamond in the rough need I say anymore?" },
   { rating: 20, user_id: 1, restaurant_id: 18, comment: "I admit, I don't go to Sam La Grassa's all that often. But when I do go, I go for three words: Chipotle. Pastrami. Sandwich. (Ergo, I visit sparingly so I can avoid three other words: Echo. Cardio. Gram.)
 
-  Let's talk about the tender, melt-in-your-mouth, perfectly flavored pastrami. Or the kicky, crisp coleslaw. Or the tangy honey mustard. Or the fresh Swiss that melts perfectly when they press the delicious sesame roll containing this perfect creation. Throw in a side of their golden steak cut fries, and you have the makings of a "last meal on Earth" meal. Sure, the sandwich will run you $15 and the fries another $5, and your life expectancy will have probably gone down six months by the last bite. But you know what? It's worth every cent " },
+  Let's talk about the tender, melt-in-your-mouth, perfectly flavored pastrami. Or the kicky, crisp coleslaw. Or the tangy honey mustard. Or the fresh Swiss that melts perfectly when they press the delicious sesame roll containing this perfect creation. Throw in a side of their golden steak cut fries, and you have the makings of a last meal on Earth meal. Sure, the sandwich will run you $15 and the fries another $5, and your life expectancy will have probably gone down six months by the last bite. But you know what? It's worth every cent " },
   { rating: 60, user_id: 9, restaurant_id: 19, comment: "Walk in and the staff did not see too happy to jave another customer. Very serious ppl. Ordered a steak tip lunch and they gave me 5 small peices of overcooked steak. They probably thought the big salad they added to the bowl would make up for the different. It didn't. Way to expensive for how much steak I ate. I wish i had gone somewhere else because im still hungry. The food was not bad tasting however...just not enough main course. Too much filler. Don't gyp ur customers." },
   { rating: 80, user_id: 5, restaurant_id: 19, comment: "Love them! Men working there are super funny and make great foodie. I work in the area and we enjoy going there for breakfast. My friends say they like their pancakes, and I like my bacon, egg and cheese on a roll which is yummy. Their home fries could be a bit crispier...
   Cash only!
   The lady at the cash register is so sweet. :)" },
   { rating: 100, user_id: 4, restaurant_id: 19, comment: "I used to have lunch here once a month while working in downtown crossing at Filene's. Got their spinach pie or a sandwich the cook knew my name after a while he gave me a discount on my lunch. The cashier Denise was very friendly always greeted me a with a big hello and smile when I walked in the door miss u Denise." },
-
 ]
 
 reviews.each do |review|

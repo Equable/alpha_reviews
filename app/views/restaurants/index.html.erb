@@ -7,13 +7,18 @@
         <%=link_to(restaurant) do %>
           <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
           <br>
-          <%= image_tag(restaurant.image, class:"center-cropped") %>
           <% if current_user && current_user.admin %>
-            <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
           <% end %>
         <%end%>
+        <% restaurant.categories.each do |category| %>
+        <%= category.name %> &nbsp
+        <% end %>
       </li>
+      <br />
       <%= restaurant.description %>
+      <br />
+      <%= image_tag(restaurant.image, class:"center-cropped") %>
     </div>
     <br>
     <br>
