@@ -34,7 +34,7 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def destroy
-    
+    binding.pry
   end
 
   private

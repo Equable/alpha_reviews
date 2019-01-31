@@ -7,7 +7,7 @@ const ReviewTile = props => {
       <div className = "row" >
         <div className="small-6 column ">
          <button className="edit" onClick={props.onClick}>Edit</button>
-         <button className="delete">Delete</button>
+         <button className="delete" onClick={props.delete}>Delete</button>
         </div>
       </div >;
   }

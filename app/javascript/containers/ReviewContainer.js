@@ -66,11 +66,15 @@ class ReviewContainer extends Component {
   }
 
   render() {
+    let deleteClick = () =>{
+      debugger
+      this.props.deleteReview(this.state.review.id)
+    }
     let review =()=>{
       if(this.state.edit){
         return <ReviewEditFormTile handleSubmit={this.handleSubmit} review={this.state.review} handleChange={this.handleChange}/>
       } else{
-        return <ReviewTile key={`RevT_${this.state.review.id}`} review={this.state.review} onClick={this.handleEditClick} visible={this.state.loggedIn}/>
+        return <ReviewTile key={`RevT_${this.state.review.id}`} review={this.state.review} onClick={this.handleEditClick} visible={this.state.loggedIn} delete={deleteClick}/>
       }
     }
     return (
