@@ -67,7 +67,6 @@ class ReviewContainer extends Component {
 
   render() {
     let deleteClick = () =>{
-      debugger
       this.props.deleteReview(this.state.review.id)
     }
     let review =()=>{

@@ -34,7 +34,14 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def destroy
-    binding.pry
+    review= Review.find(params["review_id"].to_i)
+    if review.user_id === current_user.id
+      if review.delete
+        render status: 202, json: {junk: "dont look im naked!"}
+      end
+    else
+      render status: 404, json: {junk: "woopsie poopsy"}
+    end
   end
 
   private

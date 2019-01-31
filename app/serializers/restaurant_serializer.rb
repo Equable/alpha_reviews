@@ -1,5 +1,5 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :street, :state, :zip, :city, :categories, :reviews, :user
+  attributes :id, :name, :street, :state, :zip, :city, :categories, :reviews, :user, :commented
 
   def categories
     object.categories
@@ -21,5 +21,14 @@ class RestaurantSerializer < ActiveModel::Serializer
       }
     end
     return reviews
+  end
+
+  def commented
+    object.reviews.each do |review|
+      if review.user_id === current_user.id
+        return true
+      end
+    end
+    return false
   end
 end

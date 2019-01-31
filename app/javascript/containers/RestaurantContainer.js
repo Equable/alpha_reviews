@@ -8,7 +8,7 @@ class RestaurantContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      restaurant: {}
+      restaurant: {},
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.postReview=this.postReview.bind(this)
@@ -41,7 +41,7 @@ class RestaurantContainer extends Component {
   deleteReview(review_id){
     fetch(`/api/v1/reviews/${review_id}`, {
       method: 'DELETE',
-      body: JSON.stringify({review_id: 2}),
+      body: JSON.stringify({review_id: review_id}),
       credentials: 'same-origin',
       headers: {
         'Accept': 'application/json',
@@ -49,7 +49,6 @@ class RestaurantContainer extends Component {
       }
     })
       .then(response => {
-        debugger;
         if (response.ok) {
           this.fetchRestaurantData(this.props.params.id)
         } else {
@@ -81,6 +80,7 @@ class RestaurantContainer extends Component {
     .then(body=>{
       let restaurant = this.state.restaurant
       restaurant.reviews= restaurant.reviews.concat(body.review)
+      restaurant.commented= true
       this.setState({restaurant: restaurant})
     })
   }
@@ -92,14 +92,15 @@ class RestaurantContainer extends Component {
 
   render() {
     let user = this.state.restaurant.user
+    let form = null
+    if (!this.state.restaurant.commented) { form = <ReviewFormTile handleSubmit={this.handleSubmit} />}
     if(!user){user = 0}
     return (
       <div>
         <h1>Restaurant Show Page</h1>
         <RestaurantInfoTile restaurant= {this.state.restaurant}/>
         <ReviewsContainer reviews= {this.state.restaurant.reviews} user={user} deleteReview={this.deleteReview}/>
-        <ReviewFormTile handleSubmit={this.handleSubmit}/>
-
+        {form}
       </div>
     );
   }
