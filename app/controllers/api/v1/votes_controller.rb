@@ -2,13 +2,17 @@ class Api::V1::VotesController < ApplicationController
   protect_from_forgery unless: -> { request.format.json? }
 
   def create
-    vote = Vote.new(vote_params)
-    vote.user_id = current_user.id
+    if current_user
+      vote = Vote.new(vote_params)
+      vote.user_id = current_user.id
 
-    if vote.save!
-      flash[:notice] = "Vote recorded!"
+      if vote.save!
+        flash[:notice] = "Vote recorded!"
+      else
+        render json: {error: vote.errors.full_messages}, status: :unprocessable_entity
+      end
     else
-      render json: {error: vote.errors.full_messages}, status: :unprocessable_entity
+      flash[:notice] = "You must be logged in to vote!"
     end
   end
 

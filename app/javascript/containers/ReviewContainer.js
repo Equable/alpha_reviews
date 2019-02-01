@@ -13,7 +13,7 @@ class ReviewContainer extends Component {
       downvotes: 0,
       vote_id: false,
       loggedIn:false,
-      user_id: ''
+      user_id: false
     };
     this.handleEditClick = this.handleEditClick.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -115,66 +115,78 @@ class ReviewContainer extends Component {
 
 
   handleUpVoteClick(){
-    if (this.state.vote_status === 1) {
-      this.setState({
-        vote_status: 0, 
-        upvotes: this.state.upvotes -= 1
-      })
-      this.deleteVote()
-    }
-    else if (this.state.vote_status === -1) {
-      this.setState({
-        vote_status: 1, 
-        upvotes: this.state.upvotes += 1, 
-        downvotes: this.state.downvotes -= 1
-      })
-      this.deleteVote()
-      let vote = {
-        user_id: this.state.user_id, 
-        review_id: this.state.review.id, 
-        status: true
+    if (this.state.user_id) {
+      if (this.state.vote_status === 1) {
+        this.setState({
+          vote_status: 0, 
+          upvotes: this.state.upvotes -= 1
+        })
+        this.deleteVote()
       }
-      this.postVote(vote)
-    }
-    else if (this.state.vote_status === 0) {
-      let vote = {
-        user_id: this.state.user_id, 
-        review_id: this.state.review.id, 
-        status: true}
-      this.postVote(vote)
+      else if (this.state.vote_status === -1) {
+        this.setState({
+          vote_status: 1, 
+          upvotes: this.state.upvotes += 1, 
+          downvotes: this.state.downvotes -= 1
+        })
+        this.deleteVote()
+        let vote = {
+          user_id: this.state.user_id, 
+          review_id: this.state.review.id, 
+          status: true
+        }
+        this.postVote(vote)
+      }
+      else if (this.state.vote_status === 0) {
+        let vote = {
+          user_id: this.state.user_id, 
+          review_id: this.state.review.id, 
+          status: true}
+        this.postVote(vote)
+      }
+      else {
+        let errorMessage = "You must be logged in to vote!", error = new Error(errorMessage)
+        throw (error)   
+      }
     }
   }
 
   handleDownVoteClick(){
-    if (this.state.vote_status === -1) {
-      this.setState({
-        vote_status: 0, 
-        downvotes: this.state.downvotes -= 1})
-      this.deleteVote()
-    }
-    else if (this.state.vote_status === 1) {
-      this.setState({
-        vote_status: -1, 
-        downvotes: this.state.downvotes += 1, 
-        upvotes: this.state.upvotes -= 1})
-      this.deleteVote()
-      let vote = {
-        user_id: this.state.user_id, 
-        review_id: this.state.review.id, 
-        status: 0}
-      this.postVote(vote)
-    }
-    else if (this.state.vote_status === 0) {
-      this.setState({
-        vote_status: -1, 
-        downvotes: this.state.downvotes += 1
-      })
-      let vote = {
-        user_id: this.state.user_id, 
-        review_id: this.state.review.id, 
-        status: 0
+    if (this.state.user_id) {
+      if (this.state.vote_status === -1) {
+        this.setState({
+          vote_status: 0, 
+          downvotes: this.state.downvotes -= 1})
+        this.deleteVote()
       }
-      this.postVote(vote)
+      else if (this.state.vote_status === 1) {
+        this.setState({
+          vote_status: -1, 
+          downvotes: this.state.downvotes += 1, 
+          upvotes: this.state.upvotes -= 1})
+        this.deleteVote()
+        let vote = {
+          user_id: this.state.user_id, 
+          review_id: this.state.review.id, 
+          status: 0}
+        this.postVote(vote)
+      }
+      else if (this.state.vote_status === 0) {
+        this.setState({
+          vote_status: -1, 
+          downvotes: this.state.downvotes += 1
+        })
+        let vote = {
+          user_id: this.state.user_id, 
+          review_id: this.state.review.id, 
+          status: 0
+        }
+        this.postVote(vote)
+      }
+    else {
+      let errorMessage = "You must be logged in to vote!", error = new Error(errorMessage)
+      throw (error)   
+    }
     }
   }
 

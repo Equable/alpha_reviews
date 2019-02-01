@@ -24,11 +24,11 @@ class ReviewsContainer extends Component {
         }
         return(
             <ReviewContainer 
-                            key={`rev_${review.id}`} 
-                            review={review} 
-                            loggedIn={loggedIn}
-                            user={this.props.user}
-                            />
+              key={`rev_${review.id}`} 
+              review={review} 
+              loggedIn={loggedIn}
+              user={this.props.user}
+              />
         )
       })
       return (
