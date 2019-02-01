@@ -24,7 +24,8 @@ beforeEach(() => {
           restaurant_id: 1,
           comment: "review 1",
           created_at: "2019-01-28T15:07:35.401Z",
-          updated_at: "2019-01-28T15:07:35.401Z"
+          updated_at: "2019-01-28T15:07:35.401Z",
+          review_user_email: 'hello@gmail.com'
           },
           {
           id: 2,
@@ -33,7 +34,8 @@ beforeEach(() => {
           restaurant_id: 1,
           comment: "review 2",
           created_at: "2019-01-28T15:10:02.597Z",
-          updated_at: "2019-01-28T15:10:02.597Z"
+          updated_at: "2019-01-28T15:10:02.597Z",
+          review_user_email: 'hello@gmail.com'
           },
           {
           id: 3,
@@ -42,12 +44,14 @@ beforeEach(() => {
           restaurant_id: 1,
           comment: "review 3",
           created_at: "2019-01-28T15:15:30.190Z",
-          updated_at: "2019-01-28T15:15:30.190Z"
+          updated_at: "2019-01-28T15:15:30.190Z",
+          review_user_email: 'hello@gmail.com'
           }
         ],
       user: {
         id: 5,
         email: "louis@gmail.com",
+        review_user_email: 'hello@gmail.com',
         created_at: "2019-01-31T21:31:05.127Z",
         updated_at: "2019-01-31T21:31:05.127Z",
         admin: false,
@@ -80,9 +84,7 @@ describe('RestaurantContainer', () => {
     }, 0)
   })
 
-  it('should have an h1 reviews header', () => {
-    expect(wrapper.find('h1').nodes[2].innerHTML).toEqual("Reviews")
-  })
+
 
   it('should have review tiles with a rating', (done) => {
     setTimeout(() => {
@@ -103,7 +105,8 @@ describe('RestaurantContainer', () => {
         rating: 5,
         restaurant_id: 1,
         updated_at: "2019-01-28T22:37:03.535Z",
-        user_id: 5
+        user_id: 5,
+        review_user_email: 'hello@gmail.com'
       }
     }
   });

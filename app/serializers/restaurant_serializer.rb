@@ -1,5 +1,5 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :street, :state, :zip, :city, :categories, :reviews, :user, :commented
+  attributes :id, :name, :street, :state, :zip, :city, :categories, :reviews, :user, :commented, :image
 
   def categories
     object.categories
@@ -12,6 +12,8 @@ class RestaurantSerializer < ActiveModel::Serializer
   def reviews
     reviews=[]
     object.reviews.each do |review|
+
+      review_user_email = User.find(review.user_id).email
 
       begin 
         vote = review.votes.where(user_id: current_user.id, review_id: review.id).first
@@ -36,7 +38,8 @@ class RestaurantSerializer < ActiveModel::Serializer
         upvotes: review.votes.where(status: true).count,
         downvotes: review.votes.where(status: false).count,
         vote_status: vote_status,
-        vote_id: vote_id
+        vote_id: vote_id,
+        review_user_email: review_user_email
       }
     end
 
