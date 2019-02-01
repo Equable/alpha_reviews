@@ -10,7 +10,7 @@ const RestaurantInfoTile = props => {
   }
 
   return (
-    <div>
+    <div className="restaurants">
       <h1>{props.restaurant.name}</h1>
       {categories}
       <br />

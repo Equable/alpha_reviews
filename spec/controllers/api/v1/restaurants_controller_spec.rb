@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::RestaurantsController, type: :controller do
   let!(:review1) { FactoryBot.create(:review)}
+  login_user
+
   describe "GET#show" do
     it "should return a JSON with restaurant data" do
       get :show, params: { id: review1.restaurant_id }
