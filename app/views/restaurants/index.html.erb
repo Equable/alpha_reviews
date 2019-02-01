@@ -8,8 +8,9 @@
         <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
         <%= restaurant.description %> &nbsp
         <br />
+
         <% restaurant.categories.each do |category| %>
-        <%= category.name %> &nbsp
+          <%= category.name %> &nbsp
         <% end %>
         <br />
 
@@ -22,10 +23,10 @@
         <% if current_user && current_user.admin %>
           <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
         <% end %>
+
       </div>
       <% end %>
     </div>
-    <% end %>
     <% end %>
 </div>
 
