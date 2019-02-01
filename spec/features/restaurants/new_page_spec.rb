@@ -5,7 +5,7 @@ feature "visitors can add restaurants" do
   scenario "visitor adds new restaurant" do
 
     visit new_restaurant_path
-    expect(page).to have_content "New Restaurant Form"
+    expect(page).to have_content "New Restaurant"
 
     fill_in "Name", with: "New Restaurant"
     fill_in "Street", with: "123 Fake St"
