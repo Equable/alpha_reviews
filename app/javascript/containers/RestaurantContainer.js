@@ -101,7 +101,6 @@ class RestaurantContainer extends Component {
       <div>
         <h1>Restaurant Show Page</h1>
         <RestaurantInfoTile restaurant= {this.state.restaurant}/>
-        <ReviewsContainer reviews= {this.state.restaurant.reviews} user={user}/>
         <ReviewsContainer reviews= {this.state.restaurant.reviews} user={user} deleteReview={this.deleteReview}/>
         <ReviewFormTile handleSubmit={this.handleSubmit}/>
         {form}

@@ -39,22 +39,10 @@
       </section>
     </nav>
   </div>
-
-<<<<<<< HEAD
-    <%- flash.each do |key, value| -%>
-      <div class="flash flash-<%= key %>">
-        <%= value %>
-      </div>
-    <%- end -%>
-    <div class="top-buffer"></div>
-    <div class="row parent-row">
-      <%= yield %>
-=======
   <div class="top-buffer"></div>
   <%- flash.each do |key, value| -%>
     <div class="roboto text-center">
       <%= value %>
->>>>>>> 39dc30fb582990552df40461c0bad1b4c591cb8f
     </div>
   <%- end -%>
   <div class="row parent-row">

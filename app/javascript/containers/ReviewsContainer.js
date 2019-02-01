@@ -30,7 +30,6 @@ class ReviewsContainer extends Component {
               user={this.props.user}
               loggedIn={loggedIn} deleteReview={this.props.deleteReview}
               />
-          <ReviewContainer key={`rev_${review.id}`} review={review} />
         )
       })
       return (
