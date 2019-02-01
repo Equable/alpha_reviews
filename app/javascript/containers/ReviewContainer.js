@@ -1,6 +1,6 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import ReviewEditFormTile from "../tiles/ReviewEditFormTile";
-import ReviewTile from "../tiles/ReviewTile"
+import ReviewTile from "../tiles/ReviewTile";
 
 class ReviewContainer extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class ReviewContainer extends Component {
       upvotes: 0,
       downvotes: 0,
       vote_id: false,
-      loggedIn:false,
+      loggedIn: false,
       user_id: false
     };
     this.handleEditClick = this.handleEditClick.bind(this)

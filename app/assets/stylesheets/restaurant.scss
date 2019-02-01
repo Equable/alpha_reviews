@@ -119,17 +119,18 @@ body, label {
   vertical-align: middle;
   width: 150px;
 }
+
 .vote-button:hover {
   border-top-color: #4f4f4f;
   background: #4f4f4f;
   color: #ccc;
   text-decoration:none;
 }
+
 .vote-button:active {
   border-top-color: #4a4a4a;
   background: #4a4a4a;
 }
-
 
 .vote-button-voted {
   color: #ffffff!important;
