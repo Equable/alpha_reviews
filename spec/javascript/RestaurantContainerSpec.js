@@ -55,7 +55,7 @@ beforeEach(() => {
           url: null
         }
       },
-      commented: true
+      commented: false
     }
   }
   fetchMock.get('/api/v1/restaurants/1', {
