@@ -33,28 +33,42 @@ button {
 .restaurant{
   box-shadow: 5px 5px 10px rgba(0,0,0, 0.2), -5px 5px 10px rgba(0,0,0, 0.2);
   padding: 20px;
-  // margin: 40px;
+  margin: 20px;
+  margin-bottom: 20px;
   background: white;
   overflow: hidden;
-  width: 500px;
   height: 600px;
 }
 
+@media screen and (max-width: 400px) {
+  .restaurant {
+      margin:0px;
+  }
+}
+
+
+
 .restaurants{
-  box-shadow: -5px -5px 10px rgba(0,0,0, 0.8);
-  padding: 20px;
-  background: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media screen and (max-width: 400px) {
+  .restaurants {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
 }
 
 .top-buffer{
   height: $height-of-buffer;
 }
 
-body, label {
-  font-family: 'Roboto', sans-serif;
-  background-color: #e8e8e8;
-  font-size: 20px;
-}
+// body, label {
+//   font-family: 'Roboto', sans-serif;
+//   background-color: #e8e8e8;
+//   font-size: 20px;
+// }
 
 .top-bar {
   box-shadow: 5px 5px 10px rgba(0,0,0, 0.2), -5px 5px 10px rgba(0,0,0, 0.5);
@@ -71,6 +85,7 @@ body, label {
   object-position: center;
   height: 400px;
   width: 100%;
+
 }
 
 .featured {
@@ -99,12 +114,6 @@ body, label {
 
 .vote-button{
   border-top: 1px solid #969696;
-  // background: #000000;
-  // background: -webkit-gradient(linear, left top, left bottom, from(#545454), to(#000000));
-  // background: -webkit-linear-gradient(top, #545454, #000000);
-  // background: -moz-linear-gradient(top, #545454, #000000);
-  // background: -ms-linear-gradient(top, #545454, #000000);
-  // background: -o-linear-gradient(top, #545454, #000000);
   padding: 5px 10px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -134,4 +143,8 @@ body, label {
 
 .vote-button-voted {
   color: #ffffff!important;
+}
+
+.parent-row{
+  min-width:100%
 }
