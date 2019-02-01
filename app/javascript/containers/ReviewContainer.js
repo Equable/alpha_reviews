@@ -138,10 +138,15 @@ class ReviewContainer extends Component {
         this.postVote(vote)
       }
       else if (this.state.vote_status === 0) {
+        this.setState({
+          vote_status: 1, 
+          upvotes: this.state.upvotes += 1
+        })
         let vote = {
           user_id: this.state.user_id, 
           review_id: this.state.review.id, 
-          status: true}
+          status: true
+        }
         this.postVote(vote)
       }
       else {
@@ -210,26 +215,42 @@ class ReviewContainer extends Component {
     }
     let review =()=>{
 
-      let you_voted 
+      let upvoted
+      let downvoted
 
       if ( this.state.vote_status === 1 ) {
-        you_voted = "You Upvoted this! :D"
+        upvoted = "upvote success vote-button vote-button-voted"
+        downvoted = "downvote alert vote-button"
       }
       else if ( this.state.vote_status === -1 ) {
-        you_voted = "You Downvoted this! D:"
+        upvoted = "upvote success vote-button"
+        downvoted = "downvote alert vote-button vote-button-voted"
       }
       else {
-        you_voted = "You haven't voted! T_T"
+        upvoted = "upvote success vote-button"
+        downvoted = "downvote alert vote-button"
       }
 
       if(this.state.edit){
         return <ReviewEditFormTile
-                  handleSubmit={this.handleSubmit}
-                  review={this.state.review}
-                  handleChange={this.handleChange}
-                  />
+          handleSubmit={this.handleSubmit}
+          review={this.state.review}
+          handleChange={this.handleChange}
+              />
       } else{
-        return <ReviewTile key={`RevT_${this.state.review.id}`} review={this.state.review} onClick={this.handleEditClick} visible={this.state.loggedIn} delete={deleteClick}/>
+        return <ReviewTile 
+          key={`RevT_${this.state.review.id}`}
+          review={this.state.review} 
+          onClick={this.handleEditClick}
+          visible={this.state.loggedIn} 
+          delete={deleteClick}
+          upvote_click={this.handleUpVoteClick}
+          downvote_click={this.handleDownVoteClick}
+          upvoted={upvoted}
+          downvoted={downvoted}
+          upvotes={this.state.upvotes}
+          downvotes={this.state.downvotes}
+        />
       }
     }
     return (

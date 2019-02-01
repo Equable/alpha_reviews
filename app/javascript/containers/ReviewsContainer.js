@@ -28,7 +28,8 @@ class ReviewsContainer extends Component {
               review={review} 
               loggedIn={loggedIn}
               user={this.props.user}
-              loggedIn={loggedIn} deleteReview={this.props.deleteReview}
+              loggedIn={loggedIn} 
+              deleteReview={this.props.deleteReview}
               />
         )
       })

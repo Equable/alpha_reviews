@@ -129,9 +129,6 @@ categorizations.each do |categorization|
 	Categorization.create(categorization)
 end
 
-users = [
-  { email: "user@test.com", password: "password", admin: false },
-  { email: "admin@test.com", password: "password", admin: true }
 reviews = [
 
   { rating: 40, user_id: 1, restaurant_id: 1, comment: "How do you get a bunch of worker bees to opt for a cold salad lunch in the dead of winter?  Offer up a $6 Build Your Own Salad every Monday in January (Regularly priced $7.99. Protein fees apply.) deal to your cardholders!
