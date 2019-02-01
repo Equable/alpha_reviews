@@ -44,9 +44,7 @@ beforeEach(() => {
 
 
 describe('ReviewsContainer', () => {
-  it('should have an h1 reviews header', () => {
-    expect(wrapper.contains(<h1>Reviews</h1>)).toEqual(true)
-  })
+
 
   it('shows reviews', (done) => {
     setTimeout(() => {

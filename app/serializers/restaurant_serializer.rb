@@ -1,5 +1,5 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :street, :state, :zip, :city, :categories, :reviews, :user, :commented
+  attributes :id, :name, :street, :state, :zip, :city, :categories, :reviews, :user, :commented, :image
 
   def categories
     object.categories

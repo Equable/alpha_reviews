@@ -35,7 +35,6 @@ class ReviewsContainer extends Component {
       })
       return (
           <div className="row">
-              <h1>Reviews</h1>
               {reviewTiles}
           </div>
       );

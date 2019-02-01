@@ -99,8 +99,8 @@ class RestaurantContainer extends Component {
     if(!user){user = {id: 0}}
     return (
       <div>
-        <h1>Restaurant Show Page</h1>
         <RestaurantInfoTile restaurant= {this.state.restaurant}/>
+        <br />
         <ReviewsContainer reviews= {this.state.restaurant.reviews} user={user} deleteReview={this.deleteReview}/>
         {form}
       </div>
