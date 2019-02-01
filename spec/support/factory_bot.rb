@@ -16,7 +16,8 @@ FactoryBot.define do
   	city {Faker::Address.city}
   	state {Faker::Address.state_abbr}
   	zip {Faker::Address.zip_code}
-  	image {Faker::Avatar.image}
+    image {Faker::Avatar.image}
+    description { Faker::Lorem.paragraph }
   end
 
   factory :category do
