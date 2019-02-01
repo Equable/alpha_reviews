@@ -6,7 +6,7 @@ const RestaurantInfoTile = props => {
   if (props.restaurant.categories) {
     categories = props.restaurant.categories.map(category => {
       return <CategoryTile key={`cat_${category.id}`} name={category.name} />;
-    }); 
+    });
   }
 
   return (
@@ -14,7 +14,7 @@ const RestaurantInfoTile = props => {
         <div className="restaurants">
           <div className='row'>
             <div className='small-6 medium-6 large-6 columns'>
-              <img src='https://images.pexels.com/photos/9315/menu-restaurant-france-eating-9315.jpg' />
+              <img src={props.restaurant.image} />
             </div>
           <div className='small-6 medium-6 large-6 columns'>
             <h1>{props.restaurant.name}</h1>
