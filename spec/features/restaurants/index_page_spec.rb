@@ -22,7 +22,7 @@ feature "Going to Restaurant Index page" do
 
     expect(page).to have_content('Delete')
     expect(page).to have_content(restaurant1.name)
-    find(:xpath, "//a[@href='/restaurants/#{restaurant1.id}']", text:'Delete').click
+    find(:xpath, "//a[@href='/restaurants/#{restaurant1.id}' and @class='alert tiny button']", text:'Delete').click
     expect(page).not_to have_content(restaurant1.name)
     expect(page).to have_content('Restaurant deleted successfully')
   end

@@ -28,7 +28,9 @@ const RestaurantInfoTile = props => {
             <div className="center">
               <h1 className="text-center">{props.restaurant.name}</h1>
               <div className="categories text-center">
-                {categories}
+                <p>
+                  {categories}
+                </p>
               </div>
               <br />
               <h4 className="text-center">{props.restaurant.street}</h4>
