@@ -1,15 +1,13 @@
 import RestaurantContainer from "../../app/javascript/containers/RestaurantContainer";
-import ReviewsContainer from "../../app/javascript/containers/ReviewsContainer"
-import ReviewFormTile from "../../app/javascript/tiles/ReviewFormTile"
 
 import fetchMock from 'fetch-mock'
 
-
 let wrapper;
-let restaurant;
+let restaurantCont;
 
 beforeEach(() => {
-  restaurant = {
+  fetchMock.restore()
+  restaurantCont = {
     restaurant:{
       id: 1,
       name: "Papa Johns",
@@ -46,15 +44,27 @@ beforeEach(() => {
           created_at: "2019-01-28T15:15:30.190Z",
           updated_at: "2019-01-28T15:15:30.190Z"
           }
-        ]
-      }
+        ],
+      user: {
+        id: 5,
+        email: "louis@gmail.com",
+        created_at: "2019-01-31T21:31:05.127Z",
+        updated_at: "2019-01-31T21:31:05.127Z",
+        admin: false,
+        avatar: {
+          url: null
+        }
+      },
+      commented: false
+    }
   }
   fetchMock.get('/api/v1/restaurants/1', {
     status: 200,
-    body: restaurant
+    body: restaurantCont
   });
+  
   wrapper = mount(
-    <RestaurantContainer params={{id: restaurant.restaurant.id}}/>
+    <RestaurantContainer params={{id: restaurantCont.restaurant.id}}/>
   );
 
 });
@@ -65,7 +75,7 @@ describe('RestaurantContainer', () => {
 
   it('state is updated with fetch api data from /api/v1/restaurants/1', (done) => {
     setTimeout(() => {
-      expect(wrapper.state('restaurant')).toEqual(restaurant.restaurant)
+      expect(wrapper.state('restaurant')).toEqual(restaurantCont.restaurant)
       done()
     }, 0)
   })
@@ -76,8 +86,8 @@ describe('RestaurantContainer', () => {
 
   it('should have review tiles with a rating', (done) => {
     setTimeout(() => {
-      expect(wrapper.find('.review-tile').nodes.length).toEqual(restaurant.restaurant.reviews.length)
-      expect(wrapper.contains(<h4>Rating: {restaurant.restaurant.reviews[0].rating}/5</h4>)).toEqual(true)
+      expect(wrapper.find('.review-tile').nodes.length).toEqual(restaurantCont.restaurant.reviews.length)
+      expect(wrapper.contains(<h4>Rating: {restaurantCont.restaurant.reviews[0].rating}/5</h4>)).toEqual(true)
       done()
     }, 0)
   })
@@ -93,7 +103,7 @@ describe('RestaurantContainer', () => {
         rating: 5,
         restaurant_id: 1,
         updated_at: "2019-01-28T22:37:03.535Z",
-        user_id: 1
+        user_id: 5
       }
     }
   });

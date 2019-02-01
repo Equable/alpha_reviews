@@ -18,6 +18,7 @@ class ReviewFormTile extends Component {
       let handleSubmit = (event) => {
         event.preventDefault()
         this.props.handleSubmit(this.state)
+        this.setState({rating:1, comment:""})
       }
       return(
         <div>
