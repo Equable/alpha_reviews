@@ -80,9 +80,7 @@ describe('RestaurantContainer', () => {
     }, 0)
   })
 
-  it('should have an h1 reviews header', () => {
-    expect(wrapper.find('h1').nodes[2].innerHTML).toEqual("Reviews")
-  })
+
 
   it('should have review tiles with a rating', (done) => {
     setTimeout(() => {
