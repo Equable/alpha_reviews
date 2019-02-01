@@ -20,7 +20,7 @@ const ReviewTile = props => {
     <div className="row gutter-large">
       <div className="review-tile">
         <h4>Rating: {props.review.rating}/5</h4>
-        <h4>User: {props.review.user_id}</h4>
+        <h4>User: {props.userName}</h4>
         <h6>Comment:</h6>
         <p>{props.review.comment}</p>
         {buttons}

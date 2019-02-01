@@ -22,6 +22,9 @@ class ReviewsContainer extends Component {
         if(this.props.user.id == review.user_id){
           loggedIn=true
         }
+
+        let userName = review.review_user_email.split("@");
+
         return(
             <ReviewContainer 
               key={`rev_${review.id}`} 
@@ -30,6 +33,7 @@ class ReviewsContainer extends Component {
               user={this.props.user}
               loggedIn={loggedIn} 
               deleteReview={this.props.deleteReview}
+              userName={userName[0]}
               />
         )
       })

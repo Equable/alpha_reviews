@@ -13,6 +13,8 @@ class RestaurantSerializer < ActiveModel::Serializer
     reviews=[]
     object.reviews.each do |review|
 
+      review_user_email = User.find(review.user_id).email
+
       begin 
         vote = review.votes.where(user_id: current_user.id, review_id: review.id).first
         if vote.status == true
@@ -36,7 +38,8 @@ class RestaurantSerializer < ActiveModel::Serializer
         upvotes: review.votes.where(status: true).count,
         downvotes: review.votes.where(status: false).count,
         vote_status: vote_status,
-        vote_id: vote_id
+        vote_id: vote_id,
+        review_user_email: review_user_email
       }
     end
 
