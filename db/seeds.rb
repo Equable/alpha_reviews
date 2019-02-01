@@ -1,15 +1,29 @@
 users = [
-  { email: "Joe@gmail.com", password: "password", admin: false, avatar: "https://avatars0.githubusercontent.com/u/43977254?s=460&v=4"},
-  { email: "Louis@gmail.com", password: "password", admin: false, avatar: "https://avatars0.githubusercontent.com/u/36821009?s=460&v=4"},
-  { email: "Gil@gmail.com", password: "password", admin: false, avatar: "https://avatars0.githubusercontent.com/u/45667486?s=460&v=4" },
-  { email: "Tony@gmail.com", password: "password", admin: false, avatar: "https://avatars2.githubusercontent.com/u/45667519?s=460&v=4" },
-  { email: "Unicorn@gmail.com", password: "password", admin: false, avatar: "https://i.pinimg.com/originals/ce/ae/7f/ceae7f796292d37d0f7efed55f87e231.png" },
-  { email: "Admin@gmail.com", password: "password", admin: true, avatar: "https://vignette.wikia.nocookie.net/creepypasta/images/4/4c/Name-tag-admin-1000.png/revision/latest?cb=20130730233935" }
+  { email: "Joe@gmail.com", password: "password", admin: false },
+  { email: "Louis@gmail.com", password: "password", admin: false },
+  { email: "Gil@gmail.com", password: "password", admin: false },
+  { email: "Tony@gmail.com", password: "password", admin: false },
+  { email: "Unicorn@gmail.com", password: "password", admin: false },
+  { email: "Admin@gmail.com", password: "password", admin: true }
 ]
 
 users.each do |user|
   User.create(user)
 end
+
+img = File.open(File.join(Rails.root, '/app/assets/images/Joe.jpeg'))
+User.find(1).update(avatar: img)
+img2 = File.open(File.join(Rails.root, '/app/assets/images/Louis.jpeg'))
+User.find(2).update(avatar: img2)
+img3 = File.open(File.join(Rails.root, '/app/assets/images/Gil.jpeg'))
+User.find(3).update(avatar: img3)
+img4 = File.open(File.join(Rails.root, '/app/assets/images/Tony.jpeg'))
+User.find(4).update(avatar: img4)
+img5 = File.open(File.join(Rails.root, '/app/assets/images/Unicorn.png'))
+User.find(5).update(avatar: img5)
+img6 = File.open(File.join(Rails.root, '/app/assets/images/Admin.png'))
+User.find(6).update(avatar: img6)
+
 
 categories = [
     { name: "American" },
