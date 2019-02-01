@@ -19,7 +19,7 @@ feature 'user nav bar', %Q{
 
 
     expect(page).to have_content(username)
-    expect(page).to have_content('Sign Out')
+    expect(page).to have_content('Log Out')
   end
 
   scenario 'specify invalid credentials' do
@@ -27,6 +27,6 @@ feature 'user nav bar', %Q{
 
     click_button 'Log in'
     expect(page).to have_content('Invalid Email or password')
-    expect(page).to_not have_content('Sign Out')
+    expect(page).to_not have_content('Log Out')
   end
 end

@@ -81,6 +81,13 @@ body, label {
   margin-top: 50px;
 }
 
+.featured-small {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
 .panel {
   border-radius: 10px;
 }
@@ -134,4 +141,18 @@ body, label {
 
 .vote-button-voted {
   color: #ffffff!important;
+}
+
+.edit-avatar {
+  height: 250px;
+  width: 250px;
+  margin: 30px;
+  border-radius: 150px;
+}
+
+.nav-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 150px;
+  background-color: white
 }
