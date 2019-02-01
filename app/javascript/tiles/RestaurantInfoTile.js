@@ -14,7 +14,7 @@ const RestaurantInfoTile = props => {
         <div className="restaurants">
           <div className='row'>
             <div className='small-6 medium-6 large-6 columns'>
-              <img src={props.restaurant.image} />
+              <img src='https://images.pexels.com/photos/9315/menu-restaurant-france-eating-9315.jpg' />
             </div>
           <div className='small-6 medium-6 large-6 columns'>
             <h1>{props.restaurant.name}</h1>

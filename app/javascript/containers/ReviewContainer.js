@@ -249,6 +249,7 @@ class ReviewContainer extends Component {
           downvoted={downvoted}
           upvotes={this.state.upvotes}
           downvotes={this.state.downvotes}
+          userName={this.props.userName}
         />
       }
     }
