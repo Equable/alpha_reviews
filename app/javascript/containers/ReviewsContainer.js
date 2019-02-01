@@ -23,7 +23,17 @@ class ReviewsContainer extends Component {
           loggedIn=true
         }
 
-        let userName = review.review_user_email.split("@");
+        let userName = ''
+        if (review.review_user_email) {
+          userName = review.review_user_email.split("@");
+          userName = userName[0]
+        }
+        else {
+          userName = this.props.user.email.split("@");
+          userName = userName[0]
+        }
+
+        
 
         return(
             <ReviewContainer 
@@ -33,7 +43,7 @@ class ReviewsContainer extends Component {
               user={this.props.user}
               loggedIn={loggedIn} 
               deleteReview={this.props.deleteReview}
-              userName={userName[0]}
+              userName={userName}
               />
         )
       })
