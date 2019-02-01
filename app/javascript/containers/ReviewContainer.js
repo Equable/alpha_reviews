@@ -205,7 +205,6 @@ class ReviewContainer extends Component {
       vote_id: this.props.review.vote_id,
       user_id: this.props.user.id
       })
-    this.setState({review: this.props.review, loggedIn: this.props.loggedIn})
   }
 
 
