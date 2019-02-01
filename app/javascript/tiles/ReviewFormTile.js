@@ -21,7 +21,7 @@ class ReviewFormTile extends Component {
         this.setState({rating:1, comment:""})
       }
       return(
-        <div className='row gutter-large'>
+        <div className='row'>
           <div className='review-container small-12 panel'>
             <h2>Add a Review:</h2> <br />
             <form onSubmit={handleSubmit}>

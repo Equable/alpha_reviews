@@ -17,15 +17,19 @@ const ReviewTile = props => {
     );
   }
   return (
-    <div className="row gutter-large">
+    <div className="row">
       <div className="review-tile">
         <h4>Rating: {props.review.rating}/5</h4>
         <h4>User: {props.userName}</h4>
         <h6>Comment:</h6>
         <p>{props.review.comment}</p>
-        {buttons}
         <div className="row">
-          <div className="small-6 small-centered medium-centered large-centered column ">
+          <div className="small-6 small-centered text-center medium-centered large-centered column ">
+            {buttons}
+          </div>
+        </div>
+        <div className="row">
+          <div className="small-6 small-centered text-center medium-centered large-centered column ">
             <button className={props.upvoted} onClick={props.upvote_click}>
               Upvotes: {props.upvotes}
             </button>
@@ -36,6 +40,7 @@ const ReviewTile = props => {
         </div>
       </div>
     </div>
+      
   );
 };
 
