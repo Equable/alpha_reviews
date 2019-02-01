@@ -8,7 +8,10 @@ class ReviewsContainer extends Component {
           updated: false,
         };
     }
-
+    componentDidUpdate(prevProps){
+      if(prevProps.reviews != this.state.reviews){
+      }
+    }
     render() {
       let reviews = []
       if (this.props.reviews) {
@@ -20,7 +23,14 @@ class ReviewsContainer extends Component {
           loggedIn=true
         }
         return(
-          <ReviewContainer key={`rev_${review.id}`} review={review} loggedIn={loggedIn} deleteReview={this.props.deleteReview}/>
+            <ReviewContainer 
+              key={`rev_${review.id}`} 
+              review={review} 
+              loggedIn={loggedIn}
+              user={this.props.user}
+              loggedIn={loggedIn} 
+              deleteReview={this.props.deleteReview}
+              />
         )
       })
       return (
