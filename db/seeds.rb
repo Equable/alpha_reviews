@@ -204,3 +204,46 @@ reviews = [
 reviews.each do |review|
 	Review.create(review)
 end
+
+votes = [
+  { user_id: 1, review_id: 19, status: TRUE },
+  { user_id: 2, review_id: 18, status: FALSE },
+  { user_id: 3, review_id: 17, status: TRUE },
+  { user_id: 4, review_id: 16, status: FALSE },
+  { user_id: 5, review_id: 15, status: FALSE },
+  { user_id: 6, review_id: 14, status: TRUE },
+  { user_id: 7, review_id: 13, status: TRUE },
+  { user_id: 8, review_id: 12, status: TRUE },
+  { user_id: 9, review_id: 11, status: FALSE },
+  { user_id: 1, review_id: 10, status: FALSE },
+  { user_id: 2, review_id: 9, status: TRUE },
+  { user_id: 3, review_id: 8, status: FALSE },
+  { user_id: 4, review_id: 7, status: TRUE },
+  { user_id: 5, review_id: 6, status: TRUE },
+  { user_id: 6, review_id: 5, status: FALSE },
+  { user_id: 7, review_id: 4, status: FALSE },
+  { user_id: 8, review_id: 3, status: TRUE },
+  { user_id: 9, review_id: 2, status: FALSE },
+  { user_id: 1, review_id: 1, status: FALSE },
+  { user_id: 2, review_id: 19, status: TRUE },
+  { user_id: 3, review_id: 18, status: FALSE },
+  { user_id: 4, review_id: 17, status: TRUE },
+  { user_id: 5, review_id: 16, status: FALSE },
+  { user_id: 6, review_id: 15, status: TRUE },
+  { user_id: 7, review_id: 14, status: FALSE },
+  { user_id: 8, review_id: 13, status: FALSE },
+  { user_id: 9, review_id: 12, status: TRUE },
+  { user_id: 1, review_id: 11, status: FALSE },
+  { user_id: 2, review_id: 10, status: FALSE },
+  { user_id: 3, review_id: 9, status: TRUE },
+  { user_id: 4, review_id: 8, status: FALSE },
+  { user_id: 5, review_id: 7, status: FALSE },
+  { user_id: 6, review_id: 6, status: FALSE },
+  { user_id: 7, review_id: 5, status: TRUE },
+  { user_id: 8, review_id: 4, status: FALSE },
+  { user_id: 9, review_id: 3, status: TRUE }
+]
+
+votes.each do |vote|
+  Vote.create(vote)
+end
