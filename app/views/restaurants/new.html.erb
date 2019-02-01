@@ -1,6 +1,7 @@
 <h1>New Restaurant Form:</h1>
 
-<%= form_for @restaurant do |f| %>
+<div class="row small-8">
+  <%= form_for @restaurant do |f| %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -27,7 +28,7 @@
     <%= f.text_field :zip %>
   </div>
 
- 
+
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
@@ -36,4 +37,6 @@
   <div class="actions">
     <%= f.submit "Add Restaurant" %>
   </div>
-<% end %>
+  <% end %>
+
+</div>

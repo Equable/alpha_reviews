@@ -11,6 +11,20 @@ users.each do |user|
   User.create(user)
 end
 
+img = File.open(File.join(Rails.root, '/app/assets/images/Joe.jpeg'))
+User.find(1).update(avatar: img)
+img2 = File.open(File.join(Rails.root, '/app/assets/images/Louis.jpeg'))
+User.find(2).update(avatar: img2)
+img3 = File.open(File.join(Rails.root, '/app/assets/images/Gil.jpeg'))
+User.find(3).update(avatar: img3)
+img4 = File.open(File.join(Rails.root, '/app/assets/images/Tony.jpeg'))
+User.find(4).update(avatar: img4)
+img5 = File.open(File.join(Rails.root, '/app/assets/images/Unicorn.png'))
+User.find(5).update(avatar: img5)
+img6 = File.open(File.join(Rails.root, '/app/assets/images/Admin.png'))
+User.find(6).update(avatar: img6)
+
+
 categories = [
     { name: "American" },
     { name: "Bakeries" },

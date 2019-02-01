@@ -41,11 +41,11 @@
   </div>
   <div class="top-buffer"></div>
   <%- flash.each do |key, value| -%>
-    <div class="roboto text-center">
+    <div class="text-center flash-bar"">
       <%= value %>
     </div>
   <%- end -%>
-  <div class="row parent-row">
+  <div class="parent-row" align="center">
     <%= yield %>
   </div>
 
