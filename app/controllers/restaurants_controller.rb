@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
 	def index
-		@restaurants = Restaurant.all
+		@restaurants = Restaurant.limit(18)
 	end
 
 	def show
