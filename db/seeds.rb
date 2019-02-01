@@ -1,10 +1,13 @@
 users = [
-  { email: "Joe@gmail.com", password: "password", admin: false },
-  { email: "Louis@gmail.com", password: "password", admin: false },
-  { email: "Gil@gmail.com", password: "password", admin: false },
-  { email: "Tony@gmail.com", password: "password", admin: false },
-  { email: "Unicorn@gmail.com", password: "password", admin: false },
-  { email: "Admin@gmail.com", password: "password", admin: true }
+  { email: "Joe@gmail.com", password: "password", admin: true },
+  { email: "Louis@gmail.com", password: "password", admin: true },
+  { email: "Gil@gmail.com", password: "password", admin: true },
+  { email: "Tony@gmail.com", password: "password", admin: true },
+  { email: "AmyLynn@gmail.com", password: "password", admin: false },
+  { email: "Admin@gmail.com", password: "password", admin: true },
+  { email: "Brianna@gmail.com", password: "password", admin: false },
+  { email: "Nick@gmail.com", password: "password", admin: false },
+  { email: "Casi@gmail.com", password: "password", admin: false }
 ]
 
 users.each do |user|
@@ -20,7 +23,7 @@ User.find(3).update(avatar: img3)
 img4 = File.open(File.join(Rails.root, '/app/assets/images/Tony.jpeg'))
 User.find(4).update(avatar: img4)
 img5 = File.open(File.join(Rails.root, '/app/assets/images/Unicorn.png'))
-User.find(5).update(avatar: img5)
+User.find(8).update(avatar: img5)
 img6 = File.open(File.join(Rails.root, '/app/assets/images/Admin.png'))
 User.find(6).update(avatar: img6)
 
@@ -131,7 +134,7 @@ end
 
 reviews = [
 
-  { rating: 40, user_id: 1, restaurant_id: 1, comment: "How do you get a bunch of worker bees to opt for a cold salad lunch in the dead of winter?  Offer up a $6 Build Your Own Salad every Monday in January (Regularly priced $7.99. Protein fees apply.) deal to your cardholders! It definitely worked its magic over the salad lunch line, as well as the cashier line by the time I got to it. I liked that they offered a few cooked veggie options, such as the broccoli, grilled white onion, and roasted brussel sprouts, as well as tri-colored carrot coins, a 3 grain blend, and gogi mix (not that I tried the last one, yet).  Their croutons are rather large, but quite flavorful.  They nixed romaine lettuce as a salad base due to the current outbreak in the news.  And the young black gentleman at the register was a pleasure to work with. Note to self: opt for the crunchies on the side, not chopped into the salad." },
+  { rating: 40, user_id: 1, restaurant_id: 1, comment: "How do you get a bunch of worker bees to opt for a cold salad lunch in the dead of winter?  Offer up a $6 Build Your Own Salad every Monday in January Regularly priced $7.99. Protein fees apply. deal to your cardholders! It definitely worked its magic over the salad lunch line, as well as the cashier line by the time I got to it. I liked that they offered a few cooked veggie options, such as the broccoli, grilled white onion, and roasted brussel sprouts, as well as tri-colored carrot coins, a 3 grain blend, and gogi mix (not that I tried the last one, yet.  Their croutons are rather large, but quite flavorful.  They nixed romaine lettuce as a salad base due to the current outbreak in the news.  And the young black gentleman at the register was a pleasure to work with. Note to self: opt for the crunchies on the side, not chopped into the salad." },
   { rating: 100, user_id: 2, restaurant_id: 1, comment: "World's BEST Grilled Cheese (V) $6.99 - 12-month aged Cheddar, Cheddar cheese curds, roasted tomato jam I gave Uno Due Go's self proclaimed World's Best grilled cheese a chance.  Its time in the heat took longer than the two sandwiches ordered after me.  It then sweated through the wrapping on the counter as I paid, leaving a damp shadow in its wake.
   Still, after I unwrapped it while in the UDG dining area and started on the first half, there was a nice consistent toasted crisp chew to the bread, but it rather light on the jam and definitely not the best grilled cheese I ever had.  The second half softened as it sat on the table waiting for its turn to be consumed; perhaps I should have set it on its side to help it to retain its crispness? I could have had my choice of a build your own sandwich, with a protein!, for the same $6.99, and might have enjoyed it all the better. Note: 5-7pm 1/2 off bakery goods" },
   { rating: 80, user_id: 3, restaurant_id: 1, comment: "I ordered a breakfast sandwich wrap and the first bite wasn't good as it was all bread but once I got into the actual items in the wrap, I was surprised that it was very flavorful. I went and grabbed salt and pepper to season the wrap but it didn't need any which doesn't happen often at establishments. It was very clean in here, nice seating area and I like that you can grab your own coffee.   Very clean bathrooms which you need a code to get in.  Keeps you safe!  I would go here again when I'm in the area." },
@@ -141,7 +144,7 @@ reviews = [
   Simple enough for Middle Eastern food. Grilled chicken or beef shawarma, falafel and sides. I chose the veggie sampler platter and was handed a fresh falafel to nibble on while I went through the line. Everyone got one, which is a nice feature.
   Unwrapping my styrofoam box, we have a salad base in a light dressing, tabouli, hummus, baba ganoush and all of it drizzled with a light sauce. Very tasty, very filling and very high in carbs. It was naptime at around 3:00 pm. lol
   High satisfaction meal, it stayed with me all day and I chose a light dinner late in the evening." },
-  { rating: 100, user_id: 7, restaurant_id: 3, comment: "Service was good.  The guy at the register with dreadlocks was very helpful and provided very good service. My first visit and the burger and fries were good. To be honest, it was better than shake shack.  I had the bacon cheddar with jalapeños.  The fries were fresh and delicious. Looking forward to having another burger" },
+  { rating: 100, user_id: 7, restaurant_id: 3, comment: "Service was good. The guy at the register with dreadlocks was very helpful and provided very good service. My first visit and the burger and fries were good. To be honest, it was better than shake shack.  I had the bacon cheddar with jalapeños.  The fries were fresh and delicious. Looking forward to having another burger" },
   { rating: 20, user_id: 8, restaurant_id: 3, comment: "I ordered through UBEREAT at 9:21PM a little bit before closing time & they basically rushed my order. Forgetting to add toppings to my cheese burger and the fries were horrible overall my order was a mess , my cheese burger cAme plain also were dry and overcooked, my Cajun fries were not edible at all. Overly seasoned as if they threw the fries on top of the burgers and dumped the salt into the bag and top it off some more with the half filled cups of fries. It was way too excessive that I had to sift the fries. I barely ate my food and with this oncoming headache from too much salt. I feel like I'm dying from high blood This was my second time ordering and I'm all set with this Downtown location " },
   { rating: 80, user_id: 9, restaurant_id: 3, comment: "No problems here. This is a quick review. The service was great. Fast and efficient. I ordered a Cheeseburger (which in 5 Guys world is a DOUBLE cheeseburger---keep that in mind) with ketchup, Mayo, mushrooms and jalapeños. Regular sized soft drink, but no fries this time. The fries are good, but sometimes I do without because the burgers are big enough. This location is always clean and fairly organized. Well done!" },
   { rating: 80, user_id: 9, restaurant_id: 4, comment: "I've been in love with Al Capones since I was a kid. It's on my Top 25 in the city for quantity. The Quality is traditional blue collar so don't look for any flair. Just look for some good food. The home of the 20 inch sub is still fav's on my book. Al&Rose. Loved ya since my first bite on Broad Street back in 92'" },
