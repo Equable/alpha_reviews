@@ -25,7 +25,8 @@ beforeEach(() => {
           restaurant_id: 1,
           comment: "review 1",
           created_at: "2019-01-28T15:07:35.401Z",
-          updated_at: "2019-01-28T15:07:35.401Z"
+          updated_at: "2019-01-28T15:07:35.401Z",
+          review_user_email: 'hello@gmail.com'
           },
           {
           id: 2,
@@ -34,7 +35,8 @@ beforeEach(() => {
           restaurant_id: 1,
           comment: "review 2",
           created_at: "2019-01-28T15:10:02.597Z",
-          updated_at: "2019-01-28T15:10:02.597Z"
+          updated_at: "2019-01-28T15:10:02.597Z",
+          review_user_email: 'hello@gmail.com'
           },
           {
           id: 3,
@@ -43,7 +45,8 @@ beforeEach(() => {
           restaurant_id: 1,
           comment: "review 3",
           created_at: "2019-01-28T15:15:30.190Z",
-          updated_at: "2019-01-28T15:15:30.190Z"
+          updated_at: "2019-01-28T15:15:30.190Z",
+          review_user_email: 'hello@gmail.com'
           }
       ],
       user: {
