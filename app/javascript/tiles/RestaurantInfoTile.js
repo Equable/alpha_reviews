@@ -19,8 +19,8 @@ const RestaurantInfoTile = props => {
     <div className="rest-info">
       <div className="row rest-info-tile">
         <div className='small-6 columns'>
-          <div className="rest-img rest-tile-info">
-            <img src={props.restaurant.image} />
+          <div className="rest-tile-info">
+            <img className="rest-img" src={props.restaurant.image} />
           </div>
         </div>
         <div className='small-6 columns'>

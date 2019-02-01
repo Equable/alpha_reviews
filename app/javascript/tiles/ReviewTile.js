@@ -23,7 +23,11 @@ const ReviewTile = props => {
         <h4>User: {props.userName}</h4>
         <h6>Comment:</h6>
         <p>{props.review.comment}</p>
-        {buttons}
+        <div className="row">
+          <div className="small-6 small-centered text-center medium-centered large-centered column ">
+            {buttons}
+          </div>
+        </div>
         <div className="row">
           <div className="small-6 small-centered text-center medium-centered large-centered column ">
             <button className={props.upvoted} onClick={props.upvote_click}>

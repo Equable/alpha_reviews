@@ -21,15 +21,17 @@
 
             <div>
               <%if restaurant.description%>
-                <%= "#{restaurant.description.split(' ')[0..20].join(' ')}..." %>
+                <%= "#{restaurant.description.split(' ')[0..15].join(' ')}..." %>
               <%else%>
                 No description available
               <%end%>
             </div>
             <br />
-            <% if current_user && current_user.admin %>
-              <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
-            <% end %>
+            <div align="center">
+              <% if current_user && current_user.admin %>
+                <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </div>
           <% end %>
           </div>
       </div>
@@ -39,7 +41,7 @@
 <div class="row" align='center'>
 <%= link_to(new_restaurant_path) do%>
   <button>Add New Restaurant</button>
-/<%end%>
+<%end%>
 </div>
 
 
