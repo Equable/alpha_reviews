@@ -7,11 +7,12 @@ users = [
   { email: "Admin@gmail.com", password: "password", admin: true },
   { email: "Brianna@gmail.com", password: "password", admin: false },
   { email: "Nick@gmail.com", password: "password", admin: false },
-  { email: "Casi@gmail.com", password: "password", admin: false }
+  { email: "Casi@gmail.com", password: "password", admin: false },
+  { email: "Admin@alphareviews.com", password: "password", admin: true },
 ]
 
 users.each do |user|
-  User.create(user)
+  User.create!(user)
 end
 
 img = File.open(File.join(Rails.root, '/app/assets/images/Joe.jpeg'))
@@ -55,7 +56,7 @@ categories = [
 ]
 
 categories.each do |category|
-	Category.create(category)
+	Category.create!(category)
 end
 
 restaurants = [
@@ -81,7 +82,7 @@ restaurants = [
 ]
 
 restaurants.each do |restaurant|
-	Restaurant.create(restaurant)
+	Restaurant.create!(restaurant)
 end
 
 categorizations = [
@@ -129,7 +130,7 @@ categorizations = [
 ]
 
 categorizations.each do |categorization|
-	Categorization.create(categorization)
+	Categorization.create!(categorization)
 end
 
 reviews = [
@@ -202,48 +203,66 @@ reviews = [
 ]
 
 reviews.each do |review|
-	Review.create(review)
+	Review.create!(review)
 end
 
 votes = [
-  { user_id: 1, review_id: 19, status: TRUE },
-  { user_id: 2, review_id: 18, status: FALSE },
-  { user_id: 3, review_id: 17, status: TRUE },
-  { user_id: 4, review_id: 16, status: FALSE },
-  { user_id: 5, review_id: 15, status: FALSE },
-  { user_id: 6, review_id: 14, status: TRUE },
-  { user_id: 7, review_id: 13, status: TRUE },
-  { user_id: 8, review_id: 12, status: TRUE },
-  { user_id: 9, review_id: 11, status: FALSE },
-  { user_id: 1, review_id: 10, status: FALSE },
-  { user_id: 2, review_id: 9, status: TRUE },
-  { user_id: 3, review_id: 8, status: FALSE },
-  { user_id: 4, review_id: 7, status: TRUE },
-  { user_id: 5, review_id: 6, status: TRUE },
-  { user_id: 6, review_id: 5, status: FALSE },
-  { user_id: 7, review_id: 4, status: FALSE },
-  { user_id: 8, review_id: 3, status: TRUE },
-  { user_id: 9, review_id: 2, status: FALSE },
-  { user_id: 1, review_id: 1, status: FALSE },
-  { user_id: 2, review_id: 19, status: TRUE },
-  { user_id: 3, review_id: 18, status: FALSE },
-  { user_id: 4, review_id: 17, status: TRUE },
-  { user_id: 5, review_id: 16, status: FALSE },
-  { user_id: 6, review_id: 15, status: TRUE },
-  { user_id: 7, review_id: 14, status: FALSE },
-  { user_id: 8, review_id: 13, status: FALSE },
-  { user_id: 9, review_id: 12, status: TRUE },
-  { user_id: 1, review_id: 11, status: FALSE },
-  { user_id: 2, review_id: 10, status: FALSE },
-  { user_id: 3, review_id: 9, status: TRUE },
-  { user_id: 4, review_id: 8, status: FALSE },
-  { user_id: 5, review_id: 7, status: FALSE },
-  { user_id: 6, review_id: 6, status: FALSE },
-  { user_id: 7, review_id: 5, status: TRUE },
-  { user_id: 8, review_id: 4, status: FALSE },
-  { user_id: 9, review_id: 3, status: TRUE }
+  { user_id: 1, review_id: 54, status: true },
+  { user_id: 2, review_id: 53, status: false },
+  { user_id: 3, review_id: 52, status: true },
+  { user_id: 4, review_id: 51, status: false },
+  { user_id: 5, review_id: 50, status: false },
+  { user_id: 6, review_id: 49, status: true },
+  { user_id: 7, review_id: 48, status: true },
+  { user_id: 8, review_id: 47, status: true },
+  { user_id: 9, review_id: 46, status: false },
+  { user_id: 1, review_id: 45, status: false },
+  { user_id: 2, review_id: 44, status: true },
+  { user_id: 3, review_id: 43, status: false },
+  { user_id: 4, review_id: 42, status: true },
+  { user_id: 5, review_id: 41, status: true },
+  { user_id: 6, review_id: 40, status: false },
+  { user_id: 7, review_id: 39, status: false },
+  { user_id: 8, review_id: 38, status: true },
+  { user_id: 9, review_id: 37, status: false },
+  { user_id: 1, review_id: 36, status: false },
+  { user_id: 2, review_id: 35, status: true },
+  { user_id: 3, review_id: 34, status: false },
+  { user_id: 4, review_id: 33, status: true },
+  { user_id: 5, review_id: 32, status: false },
+  { user_id: 6, review_id: 31, status: true },
+  { user_id: 7, review_id: 30, status: false },
+  { user_id: 8, review_id: 29, status: false },
+  { user_id: 9, review_id: 28, status: true },
+  { user_id: 1, review_id: 27, status: false },
+  { user_id: 2, review_id: 26, status: false },
+  { user_id: 3, review_id: 25, status: true },
+  { user_id: 4, review_id: 24, status: false },
+  { user_id: 5, review_id: 23, status: false },
+  { user_id: 6, review_id: 22, status: false },
+  { user_id: 7, review_id: 21, status: true },
+  { user_id: 8, review_id: 20, status: false },
+  { user_id: 9, review_id: 19, status: true },
+  { user_id: 1, review_id: 18, status: false },
+  { user_id: 2, review_id: 17, status: true },
+  { user_id: 3, review_id: 16, status: false },
+  { user_id: 4, review_id: 15, status: true },
+  { user_id: 5, review_id: 14, status: false },
+  { user_id: 6, review_id: 13, status: true },
+  { user_id: 7, review_id: 12, status: false },
+  { user_id: 8, review_id: 11, status: false },
+  { user_id: 9, review_id: 10, status: true },
+  { user_id: 1, review_id: 9, status: false },
+  { user_id: 2, review_id: 8, status: false },
+  { user_id: 3, review_id: 7, status: true },
+  { user_id: 4, review_id: 6, status: false },
+  { user_id: 5, review_id: 5, status: false },
+  { user_id: 6, review_id: 4, status: false },
+  { user_id: 7, review_id: 3, status: true },
+  { user_id: 8, review_id: 2, status: false },
+  { user_id: 9, review_id: 1, status: true }
 ]
 
 votes.each do |vote|
-  Vote.create(vote)
+  Vote.create!(vote)
 end
