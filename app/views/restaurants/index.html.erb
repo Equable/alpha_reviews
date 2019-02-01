@@ -5,15 +5,28 @@
     <% @restaurants.each do |restaurant| %>
       <div class="restaurant large-4 columns">
       <%=link_to(restaurant) do %>
-      <%= image_tag(restaurant.image, class:"center-cropped") %>
-      <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
-      <%= restaurant.description %> &nbsp
-      <br />
-      <% if current_user && current_user.admin %>
-      <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
+        <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
+        <%= restaurant.description %> &nbsp
+        <br />
+
+        <% restaurant.categories.each do |category| %>
+          <%= category.name %> &nbsp
+        <% end %>
+        <br />
+
+        <% if restaurant.image %>
+          <%= image_tag(restaurant.image, class:"center-cropped") %>
+        <% else %>
+          <%= image_tag("No-image-available.jpg", class:"center-cropped") %>
+        <% end %>
+
+        <% if current_user && current_user.admin %>
+          <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
+        <% end %>
+
+      </div>
       <% end %>
     </div>
-    <% end %>
     <% end %>
 </div>
 
