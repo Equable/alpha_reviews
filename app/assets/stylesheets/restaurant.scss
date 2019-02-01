@@ -11,8 +11,14 @@ $height-of-buffer: rem-calc(70);
   font-family: 'Permanent Marker', cursive;
 }
 
+a {
+  color: black;
+}
+
 button {
   margin: 5px;
+  background-color: #efbc04;
+
 }
 
 #hero{
@@ -28,10 +34,10 @@ button {
 .restaurant{
   box-shadow: 5px 5px 10px rgba(0,0,0, 0.2), -5px 5px 10px rgba(0,0,0, 0.2);
   padding: 20px;
-  margin: 40px;
+  // margin: 40px;
   background: white;
   overflow: hidden;
-  min-width: 500px;
+  width: 500px;
   height: 600px;
 }
 
@@ -41,9 +47,9 @@ button {
   background: white;
 }
 
-.parent-row{
-  min-width:100%;
-}
+// .parent-row{
+//   min-width:100%;
+// }
 
 
 .top-buffer{
@@ -81,10 +87,6 @@ body, label {
   margin-top: 50px;
 }
 
-// ul {
-//   list-style-type: none;
-// }
-
 .panel {
   border-radius: 10px;
 }
@@ -94,15 +96,16 @@ body, label {
   font-weight: 700;
 }
 
-// .rest-tile {
-//   box-shadow: 5px 5px 10px rgba(0,0,0, 0.2), -5px 5px 10px rgba(0,0,0, 0.2);
-//   padding: 40px;
-//   margin: 20px;
-//   background-color: white;
-// }
 
 .grid-float {
   @include grid-column(
 
   );
+}
+
+.flash-bar {
+  background-color: #efbc04;
+  padding: 20px;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
 }

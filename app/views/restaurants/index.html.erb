@@ -1,8 +1,9 @@
 <div id="hero" class= "row">
 </div>
+<div class="row">
   <div class="featured">Featured Reviews</div>
     <% @restaurants.each do |restaurant| %>
-      <div class="restaurant large-3 columns grid-float">
+      <div class="restaurant large-4 columns">
       <%=link_to(restaurant) do %>
       <%= image_tag(restaurant.image, class:"center-cropped") %>
       <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
@@ -14,7 +15,7 @@
     </div>
     <% end %>
     <% end %>
-  </div>
 </div>
+
 
 <%= link_to 'Add Restaurant', new_restaurant_path %>
