@@ -4,26 +4,38 @@ import CategoryTile from "./CategoryTile";
 const RestaurantInfoTile = props => {
   let categories = [];
   if (props.restaurant.categories) {
-    categories = props.restaurant.categories.map(category => {
-      return <CategoryTile key={`cat_${category.id}`} name={category.name} />;
+    categories = props.restaurant.categories.map((category,index) => {
+      if(index != props.restaurant.categories.length-1){
+        return `${category.name}, `
+      }
+      else{
+        return `${category.name}`
+      }
+      
     });
   }
 
   return (
-    <div className="row">
-        <div className="restaurants">
-          <div className='row'>
-            <div className='small-6 medium-6 large-6 columns'>
-              <img src={props.restaurant.image} />
+    <div className="rest-info">
+      <div className="row rest-info-tile">
+        <div className='small-6 columns'>
+          <div className="rest-img rest-tile-info">
+            <img src={props.restaurant.image} />
+          </div>
+        </div>
+        <div className='small-6 columns'>
+          <div className="rest-tile-info">
+            <div className="center">
+              <h1 className="text-center">{props.restaurant.name}</h1>
+              <div className="categories text-center">
+                {categories}
+              </div>
+              <br />
+              <h4 className="text-center">{props.restaurant.street}</h4>
+              <h6 className="text-center">
+                {props.restaurant.city}, {props.restaurant.state} {props.restaurant.zip}
+              </h6>
             </div>
-          <div className='small-6 medium-6 large-6 columns'>
-            <h1>{props.restaurant.name}</h1>
-            {categories}
-            <br />
-            <h2>Address: {props.restaurant.street}</h2>
-            <p>
-              {props.restaurant.city}, {props.restaurant.state} {props.restaurant.zip}
-            </p>
           </div>
         </div>
       </div>

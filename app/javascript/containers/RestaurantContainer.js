@@ -101,7 +101,6 @@ class RestaurantContainer extends Component {
       <div className="row">
         <div className="restaurant-show-row">
           <RestaurantInfoTile restaurant={this.state.restaurant} />
-          <br />
           <ReviewsContainer reviews={this.state.restaurant.reviews} user={user} deleteReview={this.deleteReview} />
           {form}
         </div>
