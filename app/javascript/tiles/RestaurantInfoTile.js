@@ -10,7 +10,7 @@ const RestaurantInfoTile = props => {
   }
 
   return (
-    <div className="row gutters-small">
+    <div className="row">
         <div className="restaurants">
           <div className='row'>
             <div className='small-6 medium-6 large-6 columns'>

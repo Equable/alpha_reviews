@@ -98,11 +98,13 @@ class RestaurantContainer extends Component {
     if (!this.state.restaurant.commented) { form = <ReviewFormTile handleSubmit={this.handleSubmit} />}
     if(!user){user = {id: 0}}
     return (
-      <div>
-        <RestaurantInfoTile restaurant= {this.state.restaurant}/>
-        <br />
-        <ReviewsContainer reviews= {this.state.restaurant.reviews} user={user} deleteReview={this.deleteReview}/>
-        {form}
+      <div className="row">
+        <div className="restaurant-show-row">
+          <RestaurantInfoTile restaurant={this.state.restaurant} />
+          <br />
+          <ReviewsContainer reviews={this.state.restaurant.reviews} user={user} deleteReview={this.deleteReview} />
+          {form}
+        </div>
       </div>
     );
   }
