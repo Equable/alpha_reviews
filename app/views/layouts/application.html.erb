@@ -24,16 +24,16 @@
       <section class="top-bar-section">
         <ul class="right">
           <%- if current_user -%>
-            <li>
+            <li style="background-color: white; margin-top: 10px;">
               <% if current_user.avatar.url %>
-              <%= image_tag(current_user.avatar.url, :size => "67x67") %>
+              <%= image_tag(current_user.avatar.url, :class => "nav-avatar") %>
               <% end %>
               </li>
             <li><%= link_to current_user.username, edit_user_registration_path %></li>
-            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
           <%- else -%>
             <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'Log In', new_user_session_path %></li>
           <%- end -%>
         </ul>
       </section>
@@ -45,15 +45,9 @@
       <%= value %>
     </div>
   <%- end -%>
-  <div class="parent-row" align="center">
+  <div class="parent-row small-12 medium-12 large-12 row">
     <%= yield %>
   </div>
-
-  <% if current_user %>
-    <% if current_user.admin == true %>
-      <h1>You are an admin!</h1>
-    <% end %>
-  <% end %>
 
   <%= javascript_include_tag 'application' %>
 

@@ -1,34 +1,45 @@
 <div id="hero" class= "row">
 </div>
-<div class="row">
-  <div class="featured">Featured Reviews</div>
-    <% @restaurants.each do |restaurant| %>
-      <div class="restaurant large-4 columns">
-      <%=link_to(restaurant) do %>
-        <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
-        <%= restaurant.description %> &nbsp
-        <br />
+<div class="featured">Featured Reviews</div>
+<div class="small-12 large-12 medium-12 row restaurants">
+    <% @restaurants.each_with_index do |restaurant, index| %>
+      <div class="small-12 medium-12 large-4 columns <%="end" if index == @restaurants.length-1%>">
+        <div class="restaurant">
+          <%=link_to(restaurant) do %>
+            <% if restaurant.image %>
+              <%= image_tag(restaurant.image, class:"center-cropped") %>
+            <% else %>
+              <%= image_tag("No-image-available.jpg", class:"center-cropped") %>
+            <% end %>
 
-        <% restaurant.categories.each do |category| %>
-          <%= category.name %> &nbsp
-        <% end %>
-        <br />
+            <%= content_tag(:div, restaurant.name, class: "restaurant-title") %>
+            <div align="center" style="margin-bottom: 10px; font-weight: 700; color: red;">
+              <% restaurant.categories.each do |category| %>
+                <%= category.name %> &nbsp
+              <% end %>
+            </div>
 
-        <% if restaurant.image %>
-          <%= image_tag(restaurant.image, class:"center-cropped") %>
-        <% else %>
-          <%= image_tag("No-image-available.jpg", class:"center-cropped") %>
-        <% end %>
-
-        <% if current_user && current_user.admin %>
-          <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
-        <% end %>
-
+            <div>
+              <%if restaurant.description%>
+                <%= "#{restaurant.description.split(' ')[0..20].join(' ')}..." %>
+              <%else%>
+                No description available
+              <%end%>
+            </div>
+            <br />
+            <% if current_user && current_user.admin %>
+              <%= link_to 'Delete', restaurant, :method => 'delete', class: "alert tiny button", data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          <% end %>
+          </div>
       </div>
-      <% end %>
-    </div>
     <% end %>
+</div>
+<br />
+<div class="row" align='center'>
+<%= link_to(new_restaurant_path) do%>
+  <button>Add New Restaurant</button>
+/<%end%>
 </div>
 
 
-<%= link_to 'Add Restaurant', new_restaurant_path %>
