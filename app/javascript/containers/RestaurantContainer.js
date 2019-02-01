@@ -9,10 +9,7 @@ class RestaurantContainer extends Component {
     super(props);
     this.state = {
       restaurant: {},
-<<<<<<< HEAD
       user: {}
-=======
->>>>>>> 39dc30fb582990552df40461c0bad1b4c591cb8f
     };
     this.handleSubmit = this.handleSubmit.bind(this)
     this.postReview=this.postReview.bind(this)
@@ -96,25 +93,18 @@ class RestaurantContainer extends Component {
 
   render() {
     let user = this.state.restaurant.user
-<<<<<<< HEAD
     if(!user){user = 0}
-=======
     let form = null
     if (!this.state.restaurant.commented) { form = <ReviewFormTile handleSubmit={this.handleSubmit} />}
     if(!user){user = {id: 0}}
->>>>>>> 39dc30fb582990552df40461c0bad1b4c591cb8f
     return (
       <div>
         <h1>Restaurant Show Page</h1>
         <RestaurantInfoTile restaurant= {this.state.restaurant}/>
-<<<<<<< HEAD
         <ReviewsContainer reviews= {this.state.restaurant.reviews} user={user}/>
-        <ReviewFormTile handleSubmit={this.handleSubmit}/>
-
-=======
         <ReviewsContainer reviews= {this.state.restaurant.reviews} user={user} deleteReview={this.deleteReview}/>
+        <ReviewFormTile handleSubmit={this.handleSubmit}/>
         {form}
->>>>>>> 39dc30fb582990552df40461c0bad1b4c591cb8f
       </div>
     );
   }

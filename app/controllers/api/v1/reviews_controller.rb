@@ -34,9 +34,6 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def destroy
-<<<<<<< HEAD
-    
-=======
     review= Review.find(params["review_id"].to_i)
     if review.user_id === current_user.id
       if review.delete
@@ -45,7 +42,6 @@ class Api::V1::ReviewsController < ApplicationController
     else
       render status: 404, json: {junk: "woopsie poopsy"}
     end
->>>>>>> 39dc30fb582990552df40461c0bad1b4c591cb8f
   end
 
   private

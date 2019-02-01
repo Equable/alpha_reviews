@@ -115,11 +115,9 @@ categorizations.each do |categorization|
 	Categorization.create(categorization)
 end
 
-<<<<<<< HEAD
 users = [
   { email: "user@test.com", password: "password", admin: false },
   { email: "admin@test.com", password: "password", admin: true }
-=======
 reviews = [
 
   { rating: 40, user_id: 1, restaurant_id: 1, comment: "How do you get a bunch of worker bees to opt for a cold salad lunch in the dead of winter?  Offer up a $6 Build Your Own Salad every Monday in January (Regularly priced $7.99. Protein fees apply.) deal to your cardholders!
@@ -367,7 +365,6 @@ reviews = [
 	{ rating: 60, user_id: 1, restaurant_id: 1, comment: "it was mediocre at best" },
 	{ rating: 80, user_id: 1, restaurant_id: 2, comment: "twas a delight"},
   { rating: 80, user_id: 1, restaurant_id: 1, comment: "it was pretty good I thought."}
->>>>>>> 39dc30fb582990552df40461c0bad1b4c591cb8f
 ]
 
 reviews.each do |review|
