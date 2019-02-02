@@ -263,7 +263,7 @@ class ReviewContainer extends Component {
       }
     }
     return (
-      <div className='review-container small-12 panel'>
+      <div className='review-container small-12'>
         {review()}
       </div>
     );
