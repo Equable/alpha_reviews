@@ -5,7 +5,6 @@ class Api::V1::VotesController < ApplicationController
     if current_user
       vote = Vote.new(vote_params)
       vote.user_id = current_user.id
-
       if vote.save!
         render json: {vote: vote}
       else
@@ -17,7 +16,6 @@ class Api::V1::VotesController < ApplicationController
   end
 
   def destroy
-    
     vote = Vote.find(params[:id])
     if vote.destroy
     else
