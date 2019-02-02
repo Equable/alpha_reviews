@@ -110,25 +110,25 @@ class ReviewContainer extends Component {
         throw(error)
       }
     })
+    .then(response => response.json())
+    .then(body=>{
+      this.setState({
+        vote_id: body.vote.id
+      })
+    })
   }
-
-
 
   handleUpVoteClick(){
     if (this.state.user_id) {
       if (this.state.vote_status === 1) {
+        this.deleteVote()
         this.setState({
           vote_status: 0, 
-          upvotes: this.state.upvotes -= 1
+          upvotes: this.state.upvotes -= 1,
+          vote_id: null
         })
-        this.deleteVote()
       }
       else if (this.state.vote_status === -1) {
-        this.setState({
-          vote_status: 1, 
-          upvotes: this.state.upvotes += 1, 
-          downvotes: this.state.downvotes -= 1
-        })
         this.deleteVote()
         let vote = {
           user_id: this.state.user_id, 
@@ -136,18 +136,23 @@ class ReviewContainer extends Component {
           status: true
         }
         this.postVote(vote)
+        this.setState({
+          upvotes: this.state.upvotes += 1, 
+          downvotes: this.state.downvotes -= 1,
+          vote_status: 1
+        })
       }
       else if (this.state.vote_status === 0) {
-        this.setState({
-          vote_status: 1, 
-          upvotes: this.state.upvotes += 1
-        })
         let vote = {
           user_id: this.state.user_id, 
           review_id: this.state.review.id, 
           status: true
         }
         this.postVote(vote)
+        this.setState({
+          upvotes: this.state.upvotes += 1,
+          vote_status: 1
+        })
       }
       else {
         let errorMessage = "You must be logged in to vote!", error = new Error(errorMessage)
@@ -159,34 +164,38 @@ class ReviewContainer extends Component {
   handleDownVoteClick(){
     if (this.state.user_id) {
       if (this.state.vote_status === -1) {
+        this.deleteVote()
         this.setState({
           vote_status: 0, 
-          downvotes: this.state.downvotes -= 1})
-        this.deleteVote()
+          downvotes: this.state.downvotes -= 1,
+          vote_id: null
+        })
       }
       else if (this.state.vote_status === 1) {
-        this.setState({
-          vote_status: -1, 
-          downvotes: this.state.downvotes += 1, 
-          upvotes: this.state.upvotes -= 1})
         this.deleteVote()
-        let vote = {
-          user_id: this.state.user_id, 
-          review_id: this.state.review.id, 
-          status: 0}
-        this.postVote(vote)
-      }
-      else if (this.state.vote_status === 0) {
-        this.setState({
-          vote_status: -1, 
-          downvotes: this.state.downvotes += 1
-        })
         let vote = {
           user_id: this.state.user_id, 
           review_id: this.state.review.id, 
           status: 0
         }
         this.postVote(vote)
+        this.setState({
+          vote_status: -1, 
+          downvotes: this.state.downvotes += 1, 
+          upvotes: this.state.upvotes -= 1
+        });
+      }
+      else if (this.state.vote_status === 0) {
+        let vote = {
+          user_id: this.state.user_id, 
+          review_id: this.state.review.id, 
+          status: 0
+        }
+        this.postVote(vote)
+        this.setState({
+          vote_status: -1, 
+          downvotes: this.state.downvotes += 1
+        })
       }
     else {
       let errorMessage = "You must be logged in to vote!", error = new Error(errorMessage)
@@ -204,7 +213,7 @@ class ReviewContainer extends Component {
       downvotes: this.props.review.downvotes,
       vote_id: this.props.review.vote_id,
       user_id: this.props.user.id
-      })
+    })
   }
 
 
