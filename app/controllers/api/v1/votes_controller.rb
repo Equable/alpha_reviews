@@ -5,9 +5,8 @@ class Api::V1::VotesController < ApplicationController
     if current_user
       vote = Vote.new(vote_params)
       vote.user_id = current_user.id
-
       if vote.save!
-        flash[:notice] = "Vote recorded!"
+        render json: {vote: vote}
       else
         render json: {error: vote.errors.full_messages}, status: :unprocessable_entity
       end
@@ -17,10 +16,8 @@ class Api::V1::VotesController < ApplicationController
   end
 
   def destroy
-    
     vote = Vote.find(params[:id])
     if vote.destroy
-      flash[:notice] = "Vote deleted!"
     else
       render json: {error: vote.errors.full_messages}, status: :unprocessable_entity
     end

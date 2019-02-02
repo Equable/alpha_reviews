@@ -40,7 +40,6 @@ const ReviewTile = props => {
         </div>
       </div>
     </div>
-      
   );
 };
 
